@@ -50,8 +50,23 @@ $session->header("Idea Submission");
             <div class="col-auto" style='display: flex; align-items: center;'>
                 <label id="public-label" class="form-check-label" for="privacy-toggle" style='font-size:150%; font-weight:bold;'>Public</label>
             </div>
-            <div class="col-auto" style='display: flex; align-items: center;'>
-                <i class="fas fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="Public ideas will be visible to all users. Private ideas will only be visible to you."></i>
+            <div class="col-auto" style='display: none; align-items: center;'>
+                <!-- dropdown box listing top 10 common public licenses -->
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Choose a license</option>
+                    <option value="1">MIT License</option>
+                    <option value="2">GNU GPLv3</option>
+                    <option value="3">Apache License 2.0</option>
+                    <option value="4">GNU GPLv2</option>
+                    <option value="5">BSD 3-Clause "New" or "Revised" license</option>
+                    <option value="6">BSD 2-Clause "Simplified" or "FreeBSD" license</option>
+                    <option value="7">GNU LGPLv3</option>
+                    <option value="8">GNU LGPLv2.1</option>
+                    <option value="9">Mozilla Public License 2.0</option>
+                    <option value="10">Eclipse Public License 2.0</option>
+                    <option value="11">Other/Custom</option>
+                    <option value="12">None</option>
+                </select>
             </div>
         </div>
     </div>
