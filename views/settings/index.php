@@ -150,7 +150,7 @@ $session->header("Settings");
 </style>
 <div class="discroller">
     <div class="flex-container">
-        <div class="card" style="width: calc(100% - 10px); min-height: calc(100% - 10px); height: fit-content;">
+        <div class="card">
             <div class="flex-container">
                 <div class="card">
                     <div class="card-header">
@@ -216,7 +216,7 @@ $session->header("Settings");
             </div>
         </div>
         <!-- card for selecting default privacy mode, license type, other, and custom license text -->
-        <div class="card" style="width: calc(100% - 10px); min-height: calc(100% - 10px); height: fit-content;">
+        <div class="card">
             <div class="flex-container">
                 <div class="card">
                     <div class="card-header">
@@ -274,7 +274,7 @@ $session->header("Settings");
             </div>
         </div>
         <!-- card for selecting default view options: new idea, search, favorites, my ideas, public ideas -->
-        <div class="card" style="width: calc(100% - 10px); min-height: calc(100% - 10px); height: fit-content;">
+        <div class="card">
             <div class="flex-container">
                 <div class="card">
                     <div class="card-header">
