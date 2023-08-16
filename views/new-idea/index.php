@@ -25,7 +25,7 @@ $session->header("Idea Submission");
     .control-group {
         margin: 0;
         margin-bottom: 10px;
-        max-width: calc(100%-10px);
+        max-width: calc(100% - 10px);
         width: 100%;
         display: flex;
         justify-content: center;
