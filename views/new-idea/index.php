@@ -3,7 +3,7 @@
 namespace Rpurinton\qi;
 
 require_once(__DIR__ . '/../src/Session.php');
-$session = new Session(false);
+$session = new Session(true);
 $session->header("Idea Submission");
 
 ?>
@@ -135,8 +135,26 @@ $session->header("Idea Submission");
             licenseDropdown.style.visibility = "hidden";
         }
     });
-</script>
-
-<?php
-$session->footer([]);
-?>
+    <?php
+    // force true false text
+    echo ("const loggedin = '" . ($session->loggedin ? "true" : "false") . "';");
+    ?>
+    if (loggedin == 'false') {
+        // disable the submit button
+        document.querySelector("button[type='submit']").disabled = true;
+        // disable the privacy toggle
+        privacyToggle.disabled = true;
+        // disable the license dropdown
+        licenseDropdown.disabled = true;
+        // disable the description textarea
+        document.getElementById("description").disabled = true;
+        // disable the agree to TOS checkbox
+        document.getElementById("agree-tos").disabled = true;
+        // disable the file upload
+        document.getElementById("attachments").style.display = "none";
+        // display a message to login
+        document.getElementById("description").placeholder = "You must be logged in to submit an idea.";
+    }
+    <?php
+    $session->footer([]);
+    ?>
