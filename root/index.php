@@ -193,18 +193,21 @@ $session->header("𝗤𝘂𝗮𝗻𝘁𝘂𝗺 𝗜𝗻𝗻𝗼𝘃𝗮𝘁𝗶�
             extract($session->sql->single("SELECT COUNT(1) as `shares` FROM `idea_shares`"));
             extract($session->sql->single("SELECT COUNT(1) as `favorites` FROM `favorites`"));
             extract($session->sql->single("SELECT COUNT(1) as `comments` FROM `feedback`"));
+            extract($session->sql->single("SELECT sum(`views`) as `visits` FROM `ip`"));
             $ideas = number_format($ideas, 0, '.', ',');
             $users = number_format($users, 0, '.', ',');
             $relationships = number_format($relationships, 0, '.', ',');
             $shares = number_format($shares, 0, '.', ',');
             $favorites = number_format($favorites, 0, '.', ',');
             $comments = number_format($comments, 0, '.', ',');
+            $visits = number_format($visits, 0, '.', ',');
             echo ("<a href='/ideas'>$ideas Ideas</a>");
             echo ("<a href='/users'>$users Users</a>");
             echo ("<a href='/relationships'>$relationships Relationships</a>");
             echo ("<a href='/shares'>$shares Shares</a>");
             echo ("<a href='/favorites'>$favorites Favorites</a>");
             echo ("<a href='/comments'>$comments Comments</a>");
+            echo ("<a href='/visits'>$visits Visits</a>");
             ?>
         </div>
     </div>
