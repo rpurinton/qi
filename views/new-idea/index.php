@@ -26,6 +26,11 @@ $session->header("Idea Submission");
         transform: scale(2);
     }
 
+    .form-check-label[for="privacy-toggle"][data-value="public"] {
+        color: #3366FF;
+        text-shadow: 0 0 2px #88AAFF;
+    }
+
     .control-group {
         padding-left: 0;
         margin: 0;
