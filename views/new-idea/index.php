@@ -46,7 +46,7 @@ $session->header("Idea Submission");
                     <h3>Private</h3>
                 </label>
             </div>
-            <div class="col">
+            <div class="col" style='display: flex; align-items: center;'>
                 <input class="form-check-input" type="checkbox" id="privacy-toggle" name="privacy-toggle">
             </div>
             <div class="col-auto">
