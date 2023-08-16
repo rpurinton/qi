@@ -10,14 +10,25 @@ $session->header("Idea Submission");
 
 <style>
     /* Add any custom CSS styles here */
+
+    .form-check-label {
+        margin-right: 10px;
+    }
 </style>
 
 <div class="discroller">
-    <label for="privacy-toggle" class="form-label">Privacy Mode:</label>
     <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" id="privacy-toggle" name="privacy-toggle">
-        <label class="form-check-label" for="privacy-toggle">Private</label>
-        <label class="form-check-label" for="privacy-toggle">Public</label>
+        <div class="row">
+            <div class="col-auto">
+                <label class="form-check-label" for="privacy-toggle">Private</label>
+            </div>
+            <div class="col">
+                <input class="form-check-input" type="checkbox" id="privacy-toggle" name="privacy-toggle">
+            </div>
+            <div class="col-auto">
+                <label class="form-check-label" for="privacy-toggle">Public</label>
+            </div>
+        </div>
     </div>
 
     <textarea id="description" name="description" rows="10" class="form-control" placeholder="Enter your idea description..."></textarea>
