@@ -183,7 +183,7 @@ $session->header("𝗤𝘂𝗮𝗻𝘁𝘂𝗺 𝗜𝗻𝗻𝗼𝘃𝗮𝘁𝗶�
         </div>
         <div class="searchbox">
             <i class="mdi mdi-magnify"></i>
-            <input type="text" class="form-control" name="q" id="searchinput" autofocus autocomplete="off" />
+            <input type="text" class="form-control" name="q" id="searchinput" autofocus autocomplete="off" placeholder="I have an idea for a..." />
         </div>
         <div class="globalstats">
             <?php
