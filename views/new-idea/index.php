@@ -14,10 +14,19 @@ $session->header("Idea Submission");
     .form-check-label {
         margin-right: 10px;
     }
+
+    .control-group {
+        margin-bottom: 10px;
+        max-width: calc(100%-10px);
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
 </style>
 
 <div class="discroller">
-    <div class="form-check form-switch">
+    <div class="form-check form-switch control-group">
         <div class="row">
             <div class="col-auto">
                 <label class="form-check-label" for="privacy-toggle">Private</label>
