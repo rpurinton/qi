@@ -21642,7 +21642,7 @@ code {
 .tt-query:focus,
 .tt-hint:focus, .select2-container--default .select2-selection--single .select2-search__field:focus, .select2-container--default .select2-selection--single:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number]:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text]:focus,
 .jsgrid .jsgrid-table .jsgrid-filter-row select:focus, .dataTables_wrapper select:focus, .asColorPicker-input:focus {
-  border: 1px solid rgba(71, 164, 71, 0.5);
+  border: 1px solid rgba(51, 102, 255, 0.5);
   background-color: #2A3038;
   color: #ffffff;
 }
@@ -25248,7 +25248,7 @@ div.tagsinput span.tag a {
   font-size: 0.875rem;
 }
 .navbar .navbar-menu-wrapper .search input:focus {
-  border: 1px solid rgba(71, 164, 71, 0.5);
+  border: 1px solid rgba(51, 102, 255, 0.5);
   background-color: #2A3038;
   color: #ffffff;
 }
