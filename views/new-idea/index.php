@@ -73,7 +73,18 @@ $session->header("Idea Submission");
 </div>
 
 <script>
-    // Add any custom JavaScript code here
+    const privacyToggle = document.getElementById("privacy-toggle");
+    const publicLabel = document.querySelector('label[for="privacy-toggle"][data-value="public"]');
+
+    privacyToggle.addEventListener("change", function() {
+        if (this.checked) {
+            publicLabel.style.color = "#3366FF";
+            publicLabel.style.textShadow = "0 0 2px #88AAFF";
+        } else {
+            publicLabel.style.color = ""; // Reset to default color
+            publicLabel.style.textShadow = ""; // Reset to default text shadow
+        }
+    });
 </script>
 
 <?php
