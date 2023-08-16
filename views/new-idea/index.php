@@ -16,6 +16,12 @@ $session->header("Idea Submission");
         margin-right: 10px;
     }
 
+    .form-check-input {
+        margin: 0;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
     .control-group {
         margin: 0;
         margin-bottom: 10px;
