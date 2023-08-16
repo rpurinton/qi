@@ -287,7 +287,6 @@ $session->header("Idea Submission");
     document.getElementById("description").addEventListener("keydown", function(e) {
         if (e.key == "Enter") {
             this.value += "\n";
-        } else {
             // prevent the form from submitting
             e.preventDefault();
         }
