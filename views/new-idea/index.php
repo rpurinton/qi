@@ -84,7 +84,7 @@ $session->header("Idea Submission");
             </div>
         </div>
     </div>
-    <div class="col-auto" id="license-dropdown" style='display: none; align-items: center; justify-content: center;'>
+    <div class="col-auto" id="license-dropdown" style='display: flex; visibility: hidden; align-items: center; justify-content: center;'>
         <!-- dropdown box listing top 10 common public licenses -->
         <select class="form-select form-control" aria-label="License" style='color:#f0f8ff; text-align: center;'>
             <?php
@@ -125,12 +125,12 @@ $session->header("Idea Submission");
             publicLabel.style.color = "#3366FF";
             publicLabel.style.textShadow = "0 0 2px #88AAFF";
             //display the dropdown
-            licenseDropdown.style.display = "flex";
+            licenseDropdown.style.visibility = "visible";
         } else {
             publicLabel.style.color = ""; // Reset to default color
             publicLabel.style.textShadow = ""; // Reset to default text shadow
             //hide the dropdown
-            licenseDropdown.style.display = "none";
+            licenseDropdown.style.visibility = "hidden";
         }
     });
 </script>
