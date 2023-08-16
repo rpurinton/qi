@@ -41,7 +41,7 @@ $session->header("Idea Submission");
 <div class="discroller">
     <div class="form-check form-switch control-group">
         <div class="row">
-            <div class="col-auto">
+            <div class="col-auto" style='display: flex; align-items: center;'>
                 <label class="form-check-label" for="privacy-toggle">
                     <h3>Private</h3>
                 </label>
@@ -49,7 +49,7 @@ $session->header("Idea Submission");
             <div class="col" style='display: flex; align-items: center;'>
                 <input class="form-check-input" type="checkbox" id="privacy-toggle" name="privacy-toggle">
             </div>
-            <div class="col-auto">
+            <div class="col-auto" style='display: flex; align-items: center;'>
                 <label class="form-check-label" for="privacy-toggle">
                     <h3 id="public-label">Public</h3>
                 </label>
