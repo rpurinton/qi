@@ -183,7 +183,7 @@ $session->header("𝗤𝘂𝗮𝗻𝘁𝘂𝗺 𝗜𝗻𝗻𝗼𝘃𝗮𝘁𝗶�
         </div>
         <div class="searchbox">
             <i class="mdi mdi-magnify"></i>
-            <input type="text" class="form-control" name="q" id="searchinput" autofocus autocomplete="off" placeholder="I have an idea for a..." />
+            <input type="text" class="form-control" name="q" id="searchinput" autofocus autocomplete="off" placeholder="I have an idea..." />
         </div>
         <div class="globalstats">
             <?php
@@ -208,7 +208,7 @@ $session->header("𝗤𝘂𝗮𝗻𝘁𝘂𝗺 𝗜𝗻𝗻𝗼𝘃𝗮𝘁𝗶�
             ?>
         </div>
     </div>
-    <div class="linksfooter" style='margin-bottom: 15px;'>
+    <div class="linksfooter" style='margin-bottom: 25px;'>
         <div class="linksleft">
             <a href="https://discord.gg/F685FVEXmU" target="_blank">Contact</a>
             <a href="https://discord.gg/F685FVEXmU" target="_blank">Support</a>
