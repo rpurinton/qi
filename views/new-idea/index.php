@@ -17,9 +17,9 @@ $session->header("Idea Submission");
     }
 
     .form-check-input {
-        margin: 0;
-        margin-right: 10px;
-        margin-left: 10px;
+        margin: 0 !important;
+        margin-right: 10px !important;
+        margin-left: 10px !important;
     }
 
     .control-group {
