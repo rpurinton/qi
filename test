@@ -1,0 +1,23 @@
+#!/usr/local/bin/php -f
+<?php
+if (__DIR__ == "/var/www/qi") {
+    $host = "http://qi.discommand.com/";
+}
+if (__DIR__ == "/var/www/qi") {
+    $host = "http://qi.discommand.com/";
+}
+
+$pass = 0;
+$fail = 0;
+$skip = 0;
+
+exec("ls " . __DIR__ . "/tests/*.php", $ls);
+foreach ($ls as $test) {
+    require_once($test);
+}
+
+foreach ($tests as $test) {
+    $test($host);
+}
+
+echo ("PASSED: $pass\nFAILED: $fail\nSKIPPED: $skip\n");

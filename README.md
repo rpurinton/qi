@@ -17,8 +17,9 @@ git clone https://github.com/rpurinton/qi.git
 ```
 2. Install dependencies:
 ```shell
-composer install
 npm install
+cd views/src/
+composer install
 ```
 
 For detailed documentation and additional instructions, please refer to the [Wiki](link-to-wiki) section of the repository.
