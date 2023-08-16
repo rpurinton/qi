@@ -1,0 +1,15 @@
+{
+    "name": "QI",
+    "short_name": "QI",
+    "icons": [
+        {
+            "src": "/assets/favicon/android-chrome-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#3366ff",
+    "background_color": "#3366ff",
+    "start_url": "https://qi.discommand.com/",
+    "display": "standalone"
+}
