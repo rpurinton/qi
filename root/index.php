@@ -186,30 +186,12 @@ $session->header("𝗤𝘂𝗮𝗻𝘁𝘂𝗺 𝗜𝗻𝗻𝗼𝘃𝗮𝘁𝗶�
             <input type="text" class="form-control" name="q" id="searchinput" autofocus autocomplete="off" />
         </div>
         <div class="globalstats">
-            <?php
-            extract($session->sql->single("SELECT * FROM `datasets` WHERE `complete` = 1 ORDER BY `id` DESC LIMIT 1"));
-            extract($session->sql->single("SELECT COUNT(1) as `characters` FROM `characters`"));
-            extract($session->sql->single("SELECT COUNT(1) as `clans` FROM `clans`"));
-            echo ("<a href='/regions'>$regions Regiões</a>");
-            echo ("<a href='/servers'>$servers Servidores</a>");
-            $clans = number_format($clans, 0, ".", ",");
-            echo ("<a href='/clans'>$clans Clãs</a>");
-            $characters = number_format($characters, 0, ".", ",");
-            echo ("<a href='/characters'>$characters Personagens</a>");
-            $power = number_format($power, 0, ".", ",");
-            $current_power = number_format($current_power, 0, ".", ",");
-            echo ("<a href='/global'>$power Max Poder</a>");
-            echo ("<a href='/global'>$current_power Poder Atual</a>");
-            $day = substr($day, 0, 4) . "-" . substr($day, 4, 2) . "-" . substr($day, 6, 2);
-            echo ("<a href='/global'>$day Atualização</a>");
-            echo ("<a href='/global'>$id Dias de Dados</a>");
-            ?>
         </div>
     </div>
     <div class="linksfooter">
         <div class="linksleft">
-            <a href="https://discord.gg/EeBHRKEh7N" target="_blank">Contato</a>
-            <a href="https://discord.gg/EeBHRKEh7N" target="_blank">Apoiar</a>
+            <a href="https://discord.gg/F685FVEXmU" target="_blank">Contact</a>
+            <a href="https://discord.gg/F685FVEXmU" target="_blank">Support</a>
         </div>
         <div class="copyrightfooter">
             𝗤𝘂𝗮𝗻𝘁𝘂𝗺 𝗜𝗻𝗻𝗼𝘃𝗮𝘁𝗶𝗼𝗻𝘀 &copy;2023 Laozi 老子
