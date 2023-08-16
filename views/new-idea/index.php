@@ -76,7 +76,8 @@ $session->header("Idea Submission");
     </div>
 
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="agree-tos" name="agree-tos" required checked readonly>
+        <!-- display checkbox required checked readonly -->
+        <input class="form-check-input" type="checkbox" value="" id="agree-tos" name="agree-tos" required checked readonly>
         <label class="form-check-label" for="agree-tos">I agree to the <a target="_blank" href='/tos'>Terms of Service<a></label>
     </div>
 
