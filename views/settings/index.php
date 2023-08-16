@@ -169,7 +169,7 @@ $session->header("Settings");
                             <td><?= $discord_username ?></td>
                         </tr>
                         <tr>
-                            <th>Display As/th>
+                            <th>Display As</th>
                             <td><?= $discord_global_name ?></td>
                         </tr>
                         <tr>
