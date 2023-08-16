@@ -262,9 +262,39 @@ $session->header("Settings");
             </div>
         </div>
     </div>
-</div>
-<script>
+    <!-- card for selecting default view options: new idea, search, favorites, my ideas, public ideas -->
+    <div class="card" style="width: calc(100% - 10px); min-height: calc(100% - 10px); height: fit-content;">
+        <div class="flex-container">
+            <div class="card">
+                <div class="card-header">
+                    <h3>View Options</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table table-sm">
+                        <tr>
+                            <th>Default View</th>
+                            <td>
+                                <select class="form-control" id="default_view">
+                                    <option value="0">New Idea</option>
+                                    <option value="1">Search</option>
+                                    <option value="2">Favorites</option>
+                                    <option value="3">My Ideas</option>
+                                    <option value="4">Public Ideas</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <center>
+                        <button class="btn btn-primary" onclick="saveView()"><i style="vertical-align: middle;" class="mdi mdi-content-save"></i> Save</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
 
-</script>
-<?php
-$session->footer();
+    </script>
+    <?php
+    $session->footer();
