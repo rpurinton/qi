@@ -282,6 +282,19 @@ $session->header("Idea Submission");
         // submit the form
         final_submit();
     });
+
+    // when focused on the text area make Enter key or CTRL ENTER or SHIFT ENTER add a line feed (not submit the form)
+    document.getElementById("description").addEventListener("keydown", function(e) {
+        if (e.key == "Enter") {
+            if (e.ctrlKey || e.shiftKey) {
+                // add a line feed
+                this.value += "\n";
+            } else {
+                // prevent the form from submitting
+                e.preventDefault();
+            }
+        }
+    });
 </script>
 <?php
 $session->footer([]);
