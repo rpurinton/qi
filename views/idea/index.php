@@ -32,22 +32,19 @@ $session->header("Idea #$idea_id");
         <p>by <a href="/user/<?= $discord_id ?>"><img src='https://cdn.discordapp.com/avatars/<?= $discord_id ?>/<?= $discord_avatar ?>.png' style='width: 32px; height: 32px; border-radius: 50%; vertical-align: middle; margin-right: 5px;'><?= $discord_global_name ?></a>
         <table style="padding: 5px;">
             <tr>
-                <td style="padding: 5px;">created</td>
+                <td style="padding: 5px;">Created</td>
                 <td style="padding: 5px;"><?= $date_of_creation ?></td>
             </tr>
             <tr>
-                <td style="padding: 5px;">updated</td>
+                <td style="padding: 5px;">Updated</td>
                 <td style="padding: 5px;"><?= $date_of_last_update ?></td>
             </tr>
+            <tr>
+                <td style="padding: 5px;">License</td>
+                <td style="padding: 5px;"><?= $license_type ?></td>
         </table>
         <div class="idea">
-            <div class="idea-description"><?= $description ?></div>
-            <div class="idea-license">
-                <h3>License</h3>
-                <div class="idea-license-type"><?= $license_type ?></div>
-            </div>
             <div class="idea-tags">
-                <h3>Tags</h3>
                 <div class="idea-tags">
                     <?php
                     $tags = $session->sql->query("SELECT `tag` FROM `tags` WHERE `idea_id` = $idea_id");
@@ -56,6 +53,7 @@ $session->header("Idea #$idea_id");
                     ?>
                 </div>
             </div>
+            <div class="idea-description"><?= $description ?></div>
         </div>
     </div>
 </div>
