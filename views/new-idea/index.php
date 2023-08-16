@@ -84,7 +84,7 @@ $session->header("Idea Submission");
             </div>
         </div>
     </div>
-    <div class="col-auto" id="license-dropdown" style='display: none; align-items: center;'>
+    <div class="col-auto" id="license-dropdown" style='display: none; align-items: center; justify-content: center;'>
         <!-- dropdown box listing top 10 common public licenses -->
         <select class="form-select form-control" aria-label="License" style='color:#f0f8ff; text-align: center;'>
             <?php
