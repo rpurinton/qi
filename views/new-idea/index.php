@@ -50,6 +50,9 @@ $session->header("Idea Submission");
             <div class="col-auto" style='display: flex; align-items: center;'>
                 <label id="public-label" class="form-check-label" for="privacy-toggle" style='font-size:150%; font-weight:bold;'>Public</label>
             </div>
+            <div class="col-auto" style='display: flex; align-items: center;'>
+                <i class="fas fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="Public ideas will be visible to all users. Private ideas will only be visible to you."></i>
+            </div>
         </div>
     </div>
 
