@@ -55,6 +55,17 @@ $session->header("Idea Submission");
         text-align-last: center;
         line-height: 100%;
     }
+
+    .description {
+        resize: none;
+        overflow: auto;
+        height: calc(100% - 120px);
+        max-height: calc(100% - 120px);
+        min-height: calc(100% - 120px);
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+    }
 </style>
 
 <div class="discroller">
@@ -87,7 +98,7 @@ $session->header("Idea Submission");
         </div>
     </div>
     <!-- make description text area fill the remaining space, take focus by default, and support multiline text entry with word wrapping and scrolling.  it should never grow beyond it's original size. -->
-    <textarea id="description" name="description" class="form-control control-group" style="resize: none; overflow: auto; max-height: 200px; min-height: 200px; width: 100%; max-width: 100%; min-width: 100%;"></textarea>
+    <textarea id="description" name="description" class="form-control control-group" style=""></textarea>
     <div id="attachments" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
         <!-- Thumbnails of attachments will be dynamically generated here -->
     </div>
