@@ -50,7 +50,7 @@ $session->header("Idea Submission");
             <div class="col-auto" style='display: flex; align-items: center;'>
                 <label id="public-label" class="form-check-label" for="privacy-toggle" style='font-size:150%; font-weight:bold;'>Public</label>
             </div>
-            <div class="col-auto" id="license-dropdwn" style='display: none; align-items: center;'>
+            <div class="col-auto" id="license-dropdwn" style='display: hidden; align-items: center;'>
                 <!-- dropdown box listing top 10 common public licenses -->
                 <select class="form-select form-control" aria-label="License" style='max-width: 50px; color:#f0f8ff;'>
                     <option value="1" selected>MIT</option>
@@ -98,7 +98,7 @@ $session->header("Idea Submission");
             publicLabel.style.color = ""; // Reset to default color
             publicLabel.style.textShadow = ""; // Reset to default text shadow
             //hide the dropdown
-            licenseDropdown.style.display = "none";
+            licenseDropdown.style.display = "hidden";
         }
     });
 </script>
