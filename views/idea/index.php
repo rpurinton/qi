@@ -37,7 +37,7 @@ $session->header("Idea #$idea_id");
             </tr>
             <tr>
                 <td style="padding: 5px;">updated</td>
-                <t style="padding: 5px;" d><?= $date_of_last_update ?></td>
+                <td style="padding: 5px;"><?= $date_of_last_update ?></td>
             </tr>
         </table>
         <div class="idea">
