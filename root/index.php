@@ -186,6 +186,26 @@ $session->header("𝗤𝘂𝗮𝗻𝘁𝘂𝗺 𝗜𝗻𝗻𝗼𝘃𝗮𝘁𝗶�
             <input type="text" class="form-control" name="q" id="searchinput" autofocus autocomplete="off" />
         </div>
         <div class="globalstats">
+            <?php
+            extract($session->sql->single("SELECT COUNT(1) as `ideas` FROM `ideas`"));
+            extract($session->sql->single("SELECT COUNT(1) as `users` FROM `discord_users`"));
+            extract($session->sql->single("SELECT COUNT(1) as `relationships` FROM `idea_relations`"));
+            extract($session->sql->single("SELECT COUNT(1) as `shares` FROM `idea_shares`"));
+            extract($session->sql->single("SELECT COUNT(1) as `favorites` FROM `favorites`"));
+            extract($session->sql->single("SELECT COUNT(1) as `comments` FROM `feedback`"));
+            $ideas = number_format($ideas, 0, '.', ',');
+            $users = number_format($users, 0, '.', ',');
+            $relationships = number_format($relationships, 0, '.', ',');
+            $shares = number_format($shares, 0, '.', ',');
+            $favorites = number_format($favorites, 0, '.', ',');
+            $comments = number_format($comments, 0, '.', ',');
+            echo ("<a href='/ideas'>$ideas Ideas</a>");
+            echo ("<a href='/users'>$users Users</a>");
+            echo ("<a href='/relationships'>$relationships Relationships</a>");
+            echo ("<a href='/shares'>$shares Shares</a>");
+            echo ("<a href='/favorites'>$favorites Favorites</a>");
+            echo ("<a href='/comments'>$comments Comments</a>");
+            ?>
         </div>
     </div>
     <div class="linksfooter">
