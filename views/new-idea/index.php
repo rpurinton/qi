@@ -38,7 +38,7 @@ $session->header("Idea Submission");
     }
 
     .form-select {
-        position: absolute;
+        position: relative;
         top: 0;
         left: 0;
         width: 100%;
