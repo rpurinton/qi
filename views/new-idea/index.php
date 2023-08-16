@@ -36,6 +36,25 @@ $session->header("Idea Submission");
         justify-content: center;
         flex-wrap: nowrap;
     }
+
+    .form-select {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        border: none;
+        outline: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        color: #f0f8ff;
+        font-size: 150%;
+        font-weight: bold;
+        text-align-last: center;
+        line-height: 100%;
+    }
 </style>
 
 <div class="discroller">
