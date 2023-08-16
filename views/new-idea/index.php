@@ -155,6 +155,7 @@ $session->header("Idea Submission");
         // display a message to login
         document.getElementById("description").placeholder = "You must be logged in to submit an idea.";
     }
-    <?php
-    $session->footer([]);
-    ?>
+</script>
+<?php
+$session->footer([]);
+?>
