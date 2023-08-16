@@ -1,2 +1,2 @@
 <?php
-header("Location: /favorites", true, 302);
+require_once(__DIR__ . '/../root/index.php');
