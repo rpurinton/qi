@@ -43,7 +43,7 @@
     <ul class="navbar-nav w-100">
       <li class="nav-item w-100">
         <form style="display: flex; white-space: nowrap; vertical-align: middle; margin: 3px !important; max-width: 400px;" class="nav-link mt-2 mt-md-0 d-lg-flex search">
-          <input style="width: calc(100% - 16px); max-width: 310px;" id='search' type=" text" class="form-control" placeholder="..."></input>
+          <input style="width: calc(100% - 16px); max-width: 310px;" id='search' type=" text" class="form-control" placeholder="..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></input>
           <span id='search-clear' class="mdi mdi-close-circle"></span></input>
         </form>
       </li>
