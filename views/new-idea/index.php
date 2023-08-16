@@ -65,6 +65,7 @@ $session->header("Idea Submission");
         width: 100%;
         max-width: 100%;
         min-width: 100%;
+        padding: 5px;
     }
 </style>
 
