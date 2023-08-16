@@ -53,8 +53,7 @@ $session->header("Idea Submission");
             <div class="col-auto" id="license-dropdwn" style='display: none; align-items: center;'>
                 <!-- dropdown box listing top 10 common public licenses -->
                 <select class="form-select form-control" aria-label="Default select example">
-                    <option selected>Choose a license</option>
-                    <option value="1">MIT</option>
+                    <option value="1" selected>MIT</option>
                     <option value="2">GNU GPLv3</option>
                     <option value="3">Apache 2.0</option>
                     <option value="4">GNU GPLv2</option>
