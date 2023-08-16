@@ -159,8 +159,9 @@ $session->header("Idea Submission");
     }
 
     // display a warning if there is unsaved text in the textbox if they attempt to navigate away from the page
+    var form_submitted = false;
     window.addEventListener("beforeunload", function(e) {
-        if (document.getElementById("description").value.length > 0) {
+        if (document.getElementById("description").value.length > 0 && !form_submitted) {
             e.preventDefault();
             e.returnValue = "";
         }
@@ -226,6 +227,7 @@ $session->header("Idea Submission");
                     // disable the redirection blocker
                     window.onbeforeunload = null;
                     // redirect to /idea/{idea_id}
+                    form_submitted = true;
                     window.location.href = "/idea/" + data.idea_id;
                 } else {
                     // display an error message
