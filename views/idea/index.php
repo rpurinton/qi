@@ -7,7 +7,7 @@ $session = new Session(false);
 $idea_id = explode('/', $_SERVER['REQUEST_URI'])[2];
 extract($session->sql->single("SELECT min(`idea_id`) as `min_id`, max(`idea_id`) as `max_id` FROM `ideas`"));
 if (!is_numeric($idea_id) || $idea_id < $min_id || $idea_id > $max_id) $session->redirect('/search');
-$result = $sql->single("SELECT * FROM `ideas` WHERE `idea_id` = '$idea_id'");
+$result = $session->sql->single("SELECT * FROM `ideas` WHERE `idea_id` = '$idea_id'");
 if (!$result) $session->redirect('/search');
 extract($result);
 $session->header("Idea #$idea_id");
