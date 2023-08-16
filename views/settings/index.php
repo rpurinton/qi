@@ -204,9 +204,59 @@ $session->header("Settings");
             </div>
         </div>
     </div>
-</div>
-<script>
+    <!-- card for selecting default privacy mode, license type, other, and custom license text -->
+    <div class="card" style="width: calc(100% - 10px); min-height: calc(100% - 10px); height: fit-content;">
+        <div class="flex-container">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Privacy</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table table-sm">
+                        <tr>
+                            <th>Default Privacy Mode</th>
+                            <td>
+                                <select class="form-control" id="default_privacy_mode">
+                                    <option value="0">Public</option>
+                                    <option value="1">Private</option>
+                                    <option value="2">Unlisted</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Default License Type</th>
+                            <td>
+                                <select class="form-control" id="default_license_type">
+                                    <option value="1" selected>MIT</option>
+                                    <option value="2">GNU GPLv3</option>
+                                    <option value="3">Apache 2.0</option>
+                                    <option value="4">GNU GPLv2</option>
+                                    <option value="7">GNU LGPLv3</option>
+                                    <option value="8">GNU LGPLv2.1</option>
+                                    <option value="9">Mozilla 2.0</option>
+                                    <option value="10">Eclipse 2.0</option>
+                                    <option value="11">Other/Custom</option>
+                                    <option value="12">None</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Default License Text</th>
+                            <td>
+                                <textarea class="form-control" id="default_license_text" rows="5"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Other</th>
+                            <td>
+                                <textarea class="form-control" id="other" rows="5"></textarea>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                < </div>
+                    <script>
 
-</script>
-<?php
-$session->footer();
+                    </script>
+                    <?php
+                    $session->footer();
