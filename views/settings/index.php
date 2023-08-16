@@ -137,164 +137,178 @@ $session->header("Settings");
         width: 75%;
         text-align: left;
     }
+
+    .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .card-row {
+        flex: 1 1 fit-content;
+        /* Adjust the width as needed */
+        margin: 5px;
+    }
 </style>
 <div class="discroller">
-    <div class="card" style="width: calc(100% - 10px); min-height: calc(100% - 10px); height: fit-content;">
-        <div class="flex-container">
-            <div class="card">
-                <div class="card-header">
-                    <h3>Discord Profile</h3>
-                </div>
-                <div class="card-body">
-                    <?php
-                    extract($session->user);
-                    $email = explode("@", $discord_email);
-                    $email[0] = substr($email[0], 0, 1) . str_repeat("*", strlen($email[0]) - 2) . substr($email[0], -1);
-                    $email[1] = substr($email[1], 0, 1) . str_repeat("*", strlen($email[1]) - 2) . substr($email[1], -1);
-                    $discord_email = implode("@", $email);
+    <div class="flex-container">
+        <div class="card" style="width: calc(100% - 10px); min-height: calc(100% - 10px); height: fit-content;">
+            <div class="flex-container">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Discord Profile</h3>
+                    </div>
+                    <div class="card-body">
+                        <?php
+                        extract($session->user);
+                        $email = explode("@", $discord_email);
+                        $email[0] = substr($email[0], 0, 1) . str_repeat("*", strlen($email[0]) - 2) . substr($email[0], -1);
+                        $email[1] = substr($email[1], 0, 1) . str_repeat("*", strlen($email[1]) - 2) . substr($email[1], -1);
+                        $discord_email = implode("@", $email);
 
-                    if ($discord_verified) $discord_verified = "Yes";
-                    else $discord_verified = "No";
+                        if ($discord_verified) $discord_verified = "Yes";
+                        else $discord_verified = "No";
 
-                    if ($api_token == "") $api_token = "Not Set";
-                    else $api_token = substr($api_token, 0, 4) . str_repeat("*", strlen($api_token) - 8) . substr($api_token, -4);
-                    ?>
-                    <table class="table table-sm">
-                        <tr>
-                            <th>ID</th>
-                            <td><?= $discord_id ?></td>
-                        </tr>
-                        <tr>
-                            <th>Username</th>
-                            <td><?= $discord_username ?></td>
-                        </tr>
-                        <tr>
-                            <th>Display As</th>
-                            <td><?= $discord_global_name ?></td>
-                        </tr>
-                        <tr>
-                            <th>Avatar</th>
-                            <td><img src="<?= $discord_avatar ?>" width="64" height="64"></td>
-                        </tr>
-                        <tr>
-                            <th>Discriminator</th>
-                            <td><?= $discord_discriminator ?></td>
-                        </tr>
-                        <tr>
-                            <th>E-mail</th>
-                            <td><?= $discord_email ?></td>
-                        </tr>
-                        <tr>
-                            <th>Verified</th>
-                            <td><?= $discord_verified ?></td>
-                        </tr>
-                    </table>
+                        if ($api_token == "") $api_token = "Not Set";
+                        else $api_token = substr($api_token, 0, 4) . str_repeat("*", strlen($api_token) - 8) . substr($api_token, -4);
+                        ?>
+                        <table class="table table-sm">
+                            <tr>
+                                <th>ID</th>
+                                <td><?= $discord_id ?></td>
+                            </tr>
+                            <tr>
+                                <th>Username</th>
+                                <td><?= $discord_username ?></td>
+                            </tr>
+                            <tr>
+                                <th>Display As</th>
+                                <td><?= $discord_global_name ?></td>
+                            </tr>
+                            <tr>
+                                <th>Avatar</th>
+                                <td><img src="<?= $discord_avatar ?>" width="64" height="64"></td>
+                            </tr>
+                            <tr>
+                                <th>Discriminator</th>
+                                <td><?= $discord_discriminator ?></td>
+                            </tr>
+                            <tr>
+                                <th>E-mail</th>
+                                <td><?= $discord_email ?></td>
+                            </tr>
+                            <tr>
+                                <th>Verified</th>
+                                <td><?= $discord_verified ?></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <form method="post">
+                        <input type="hidden" name="refresh" value="true">
+                        <div class="card-footer">
+                            <center>
+                                <div style="max-width: 270px;">To change any of the above, update your Discord account first, then</div>
+                                <button class="btn btn-primary"><i style="vertical-align: middle;" class="mdi mdi-refresh"></i> Refresh</button>
+                                <div>Last Refreshed</div>
+                                <div><?= $session->user["login_last"] ?> UTC</div>
+                            </center>
+                        </div>
+                    </form>
                 </div>
-                <form method="post">
-                    <input type="hidden" name="refresh" value="true">
+            </div>
+        </div>
+        <!-- card for selecting default privacy mode, license type, other, and custom license text -->
+        <div class="card" style="width: calc(100% - 10px); min-height: calc(100% - 10px); height: fit-content;">
+            <div class="flex-container">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Privacy</h3>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-sm">
+                            <tr>
+                                <th>Default Privacy Mode</th>
+                                <td>
+                                    <select class="form-control" id="default_privacy_mode">
+                                        <option value="0">Public</option>
+                                        <option value="1">Private</option>
+                                        <option value="2">Unlisted</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Default License Type</th>
+                                <td>
+                                    <select class="form-control" id="default_license_type">
+                                        <option value="1" selected>MIT</option>
+                                        <option value="2">GNU GPLv3</option>
+                                        <option value="3">Apache 2.0</option>
+                                        <option value="4">GNU GPLv2</option>
+                                        <option value="7">GNU LGPLv3</option>
+                                        <option value="8">GNU LGPLv2.1</option>
+                                        <option value="9">Mozilla 2.0</option>
+                                        <option value="10">Eclipse 2.0</option>
+                                        <option value="11">Other/Custom</option>
+                                        <option value="12">None</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Default License Text</th>
+                                <td>
+                                    <textarea class="form-control" id="default_license_text" rows="5"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Other</th>
+                                <td>
+                                    <textarea class="form-control" id="other" rows="5"></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                     <div class="card-footer">
                         <center>
-                            <div style="max-width: 270px;">To change any of the above, update your Discord account first, then</div>
-                            <button class="btn btn-primary"><i style="vertical-align: middle;" class="mdi mdi-refresh"></i> Refresh</button>
-                            <div>Last Refreshed</div>
-                            <div><?= $session->user["login_last"] ?> UTC</div>
+                            <button class="btn btn-primary" onclick="savePrivacy()"><i style="vertical-align: middle;" class="mdi mdi-content-save"></i> Save</button>
                         </center>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- card for selecting default privacy mode, license type, other, and custom license text -->
-    <div class="card" style="width: calc(100% - 10px); min-height: calc(100% - 10px); height: fit-content;">
-        <div class="flex-container">
-            <div class="card">
-                <div class="card-header">
-                    <h3>Privacy</h3>
-                </div>
-                <div class="card-body">
-                    <table class="table table-sm">
-                        <tr>
-                            <th>Default Privacy Mode</th>
-                            <td>
-                                <select class="form-control" id="default_privacy_mode">
-                                    <option value="0">Public</option>
-                                    <option value="1">Private</option>
-                                    <option value="2">Unlisted</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Default License Type</th>
-                            <td>
-                                <select class="form-control" id="default_license_type">
-                                    <option value="1" selected>MIT</option>
-                                    <option value="2">GNU GPLv3</option>
-                                    <option value="3">Apache 2.0</option>
-                                    <option value="4">GNU GPLv2</option>
-                                    <option value="7">GNU LGPLv3</option>
-                                    <option value="8">GNU LGPLv2.1</option>
-                                    <option value="9">Mozilla 2.0</option>
-                                    <option value="10">Eclipse 2.0</option>
-                                    <option value="11">Other/Custom</option>
-                                    <option value="12">None</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Default License Text</th>
-                            <td>
-                                <textarea class="form-control" id="default_license_text" rows="5"></textarea>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Other</th>
-                            <td>
-                                <textarea class="form-control" id="other" rows="5"></textarea>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="card-footer">
-                    <center>
-                        <button class="btn btn-primary" onclick="savePrivacy()"><i style="vertical-align: middle;" class="mdi mdi-content-save"></i> Save</button>
-                    </center>
+        <!-- card for selecting default view options: new idea, search, favorites, my ideas, public ideas -->
+        <div class="card" style="width: calc(100% - 10px); min-height: calc(100% - 10px); height: fit-content;">
+            <div class="flex-container">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>View Options</h3>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-sm">
+                            <tr>
+                                <th>Default View</th>
+                                <td>
+                                    <select class="form-control" id="default_view">
+                                        <option value="0">New Idea</option>
+                                        <option value="1">Search</option>
+                                        <option value="2">Favorites</option>
+                                        <option value="3">My Ideas</option>
+                                        <option value="4">Public Ideas</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="card-footer">
+                        <center>
+                            <button class="btn btn-primary" onclick="saveView()"><i style="vertical-align: middle;" class="mdi mdi-content-save"></i> Save</button>
+                        </center>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- card for selecting default view options: new idea, search, favorites, my ideas, public ideas -->
-    <div class="card" style="width: calc(100% - 10px); min-height: calc(100% - 10px); height: fit-content;">
-        <div class="flex-container">
-            <div class="card">
-                <div class="card-header">
-                    <h3>View Options</h3>
-                </div>
-                <div class="card-body">
-                    <table class="table table-sm">
-                        <tr>
-                            <th>Default View</th>
-                            <td>
-                                <select class="form-control" id="default_view">
-                                    <option value="0">New Idea</option>
-                                    <option value="1">Search</option>
-                                    <option value="2">Favorites</option>
-                                    <option value="3">My Ideas</option>
-                                    <option value="4">Public Ideas</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="card-footer">
-                    <center>
-                        <button class="btn btn-primary" onclick="saveView()"><i style="vertical-align: middle;" class="mdi mdi-content-save"></i> Save</button>
-                    </center>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script>
+</div>
+<script>
 
-    </script>
-    <?php
-    $session->footer();
+</script>
+<?php
+$session->footer();
