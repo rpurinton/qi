@@ -10,6 +10,8 @@ if (!is_numeric($idea_id) || $idea_id < $min_id || $idea_id > $max_id) $session-
 $result = $session->sql->single("SELECT * FROM `ideas` WHERE `idea_id` = '$idea_id'");
 if (!$result) $session->redirect('/search');
 extract($result);
+//parse_down markdown in $description
+$description = $session->parse_down->text($description);
 $session->header("Idea #$idea_id");
 ?>
 <style>
