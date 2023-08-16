@@ -41,6 +41,7 @@ $session->header("Idea Submission");
         position: relative;
         top: 0;
         left: 0;
+        width: fit-content;
         height: 100%;
         background: transparent;
         border: none;
