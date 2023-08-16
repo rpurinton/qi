@@ -32,12 +32,12 @@ $session->header("Idea #$idea_id");
         <p>by <a href="/user/<?= $discord_id ?>"><img src='https://cdn.discordapp.com/avatars/<?= $discord_id ?>/<?= $discord_avatar ?>.png' style='width: 32px; height: 32px; border-radius: 50%; vertical-align: middle; margin-right: 5px;'><?= $discord_global_name ?></a>
         <table style="padding: 5px;">
             <tr>
-                <td>created</td>
-                <td><?= $date_of_creation ?></td>
+                <td style="padding: 5px;">created</td>
+                <td style="padding: 5px;"><?= $date_of_creation ?></td>
             </tr>
             <tr>
-                <td>updated</td>
-                <td><?= $date_of_last_update ?></td>
+                <td style="padding: 5px;">updated</td>
+                <t style="padding: 5px;" d><?= $date_of_last_update ?></td>
             </tr>
         </table>
         <div class="idea">
