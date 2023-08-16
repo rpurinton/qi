@@ -74,7 +74,12 @@ $session->header("Idea Submission");
     <div id="attachments">
         <!-- Thumbnails of attachments will be dynamically generated here -->
     </div>
-    <div class="control-group">
+    <!-- Button to add more attachments -->
+    <div style="display: flex;">
+        <button type="button" class="btn btn-primary" style="margin: 10px;">Add Attachment</button>
+    </div>
+    <!-- Button to submit the form with the I agree to TOS above the button -->
+    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
         <div class="form-check">
             <!-- display checkbox required checked readonly -->
             <input class="form-check-input" type="checkbox" value="" id="agree-tos" name="agree-tos" required checked disabled>
