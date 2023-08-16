@@ -70,6 +70,7 @@ $session->header("Idea Submission");
         margin: 10px;
         margin-right: 10px;
         border-radius: 10px;
+        border: 1px solid #000;
     }
 </style>
 
