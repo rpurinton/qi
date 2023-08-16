@@ -191,15 +191,19 @@ $session->header("Idea Submission");
                 return;
             }
         }
-        // check that if public that a license type is selected
-        if (!privacyToggle.checked) {
-            // check if the license dropdown is set to a valid value
-            if (licenseDropdown.value != 0) {
-                // display an error message
-                alert("You must select a license if privacy is set to Public.");
-                // exit the function
-                return;
-            }
+        // check if the agree to TOS checkbox is checked
+        if (!document.getElementById("agree-tos").checked) {
+            // display an error message
+            alert("You must agree to the Terms of Service before submitting your idea.");
+            // exit the function
+            return;
+        }
+        // check if the user is logged in
+        if (loggedin == 'false') {
+            // display an error message
+            alert("You must be logged in to submit an idea.");
+            // exit the function
+            return;
         }
         // submit the form
         final_submit();
