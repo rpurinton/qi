@@ -54,16 +54,14 @@ $session->header("Idea Submission");
                 <!-- dropdown box listing top 10 common public licenses -->
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Choose a license</option>
-                    <option value="1">MIT License</option>
+                    <option value="1">MIT</option>
                     <option value="2">GNU GPLv3</option>
-                    <option value="3">Apache License 2.0</option>
+                    <option value="3">Apache 2.0</option>
                     <option value="4">GNU GPLv2</option>
-                    <option value="5">BSD 3-Clause "New" or "Revised" license</option>
-                    <option value="6">BSD 2-Clause "Simplified" or "FreeBSD" license</option>
                     <option value="7">GNU LGPLv3</option>
                     <option value="8">GNU LGPLv2.1</option>
-                    <option value="9">Mozilla Public License 2.0</option>
-                    <option value="10">Eclipse Public License 2.0</option>
+                    <option value="9">Mozilla 2.0</option>
+                    <option value="10">Eclipse 2.0</option>
                     <option value="11">Other/Custom</option>
                     <option value="12">None</option>
                 </select>
