@@ -49,6 +49,9 @@
       </li>
     </ul>
     <ul class="navbar-nav navbar-nav-right">
+      <li class="nav-item dropdown d-lg-block">
+        <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown" data-bs-toggle="dropdown" aria-expanded="false" href="/new-idea">New Idea</a>
+      </li>
       <?php
       if (!$this->loggedin) {
       ?>
