@@ -13,11 +13,11 @@
       </a>
     </li>
     <li class='nav-item menu-items'>
-      <a class='nav-link' href='https://qi.discommand.com'>
+      <a class='nav-link' href='https://qi.discommand.com/search'>
         <span class='menu-icon'>
           <i class='mdi mdi-home'></i>
         </span>
-        <span class='menu-title' style='margin-left: 5px; font-size: 100%;'><b>Home</b></span>
+        <span class='menu-title' style='margin-left: 5px; font-size: 100%;'><b>Search</b></span>
       </a>
     </li>
     <li class='nav-item menu-items'>
