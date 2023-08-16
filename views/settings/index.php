@@ -144,8 +144,7 @@ $session->header("Settings");
     }
 
     .card-row {
-        flex: 1 1 fit-content;
-        /* Adjust the width as needed */
+        flex: 1 1 300px;
         margin: 5px;
     }
 </style>
