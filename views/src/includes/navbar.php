@@ -50,7 +50,7 @@
     </ul>
     <ul class="navbar-nav navbar-nav-right">
       <li class="nav-item dropdown d-lg-block">
-        <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown" data-bs-toggle="dropdown" aria-expanded="false" href="/new-idea">New Idea</a>
+        <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown" href="/new-idea">New Idea</a>
       </li>
       <?php
       if (!$this->loggedin) {
@@ -58,8 +58,8 @@
         <li class="nav-item dropdown">
           <a href="/login">
             <div class="navbar-profile" style="flex-wrap: nowrap; white-space: nowrap; display: flex; align-items: center;">
-              <img class="img-xs rounded-circle" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Entrar com Discórd">
-              <p class="mb-0 d-none d-sm-block navbar-profile-name">&nbsp;Login with Discórd</p>
+              <img class="img-xs rounded-circle" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Discórd">
+              <p class="mb-0 d-none d-sm-block navbar-profile-name">&nbsp;Login</p>
               <i class="mdi mdi-menu-down d-none d-sm-block"></i>
             </div>
           </a>
