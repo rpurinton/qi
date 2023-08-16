@@ -100,7 +100,7 @@ $session->header("Idea Submission");
         </select>
     </div>
     <!-- make description text area fill the remaining space, take focus by default, and support multiline text entry with word wrapping and scrolling.  it should never grow beyond it's original size. -->
-    <textarea id="description" name="description" class="form-control control-group description" autofocus placeholder="Enter your idea here..." required></textarea>
+    <textarea id="description" name="description" style="resize: vertical;" class="form-control control-group description" autofocus placeholder="Enter your idea here..." required></textarea>
     <div id="attachments" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
         <!-- Thumbnails of attachments will be dynamically generated here -->
     </div>
