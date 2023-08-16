@@ -57,7 +57,8 @@ $session->header("𝗤𝘂𝗮𝗻𝘁𝘂𝗺 𝗜𝗻𝗻𝗼𝘃𝗮𝘁𝗶�
     .mainiconimage {
         width: 106px;
         height: auto;
-        margin: 1rem;
+        margin-top: 21px;
+        margin-right: 1rem;
         margin-right: 0;
         margin-bottom: 2rem;
     }
