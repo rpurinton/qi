@@ -223,6 +223,8 @@ $session->header("Idea Submission");
             .then(data => {
                 // check if the response was successful
                 if (data.idea_id) {
+                    // disable the redirection blocker
+                    window.onbeforeunload = null;
                     // redirect to /idea/{idea_id}
                     window.location.href = "/idea/" + data.idea_id;
                 } else {
