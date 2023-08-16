@@ -254,9 +254,17 @@ $session->header("Settings");
                         </tr>
                     </table>
                 </div>
-                < </div>
-                    <script>
+                <div class="card-footer">
+                    <center>
+                        <button class="btn btn-primary" onclick="savePrivacy()"><i style="vertical-align: middle;" class="mdi mdi-content-save"></i> Save</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
 
-                    </script>
-                    <?php
-                    $session->footer();
+</script>
+<?php
+$session->footer();
