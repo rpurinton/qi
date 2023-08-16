@@ -258,7 +258,7 @@ $session->header("Idea Submission");
         // check if the privacy toggle is checked
         if (privacyToggle.checked) {
             // check if the license dropdown is set to a valid value
-            if (licenseDropdown.value == 0) {
+            if (licenseDropdown.value == 0 || licenseDropdown.value == null || licenseDropdown.value == "" || licenseDropdown.value == undefined) {
                 // display an error message
                 alert("You must select a license before submitting your idea.");
                 // exit the function
