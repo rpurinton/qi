@@ -208,7 +208,7 @@ $session->header("𝗤𝘂𝗮𝗻𝘁𝘂𝗺 𝗜𝗻𝗻𝗼𝘃𝗮𝘁𝗶�
             ?>
         </div>
     </div>
-    <div class="linksfooter">
+    <div class="linksfooter" style='margin-bottom: 15px;'>
         <div class="linksleft">
             <a href="https://discord.gg/F685FVEXmU" target="_blank">Contact</a>
             <a href="https://discord.gg/F685FVEXmU" target="_blank">Support</a>
