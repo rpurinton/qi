@@ -19,14 +19,16 @@ $session->header("Idea #$idea_id");
 
 </style>
 <div class="discroller">
-    <h1>Idea #<?= $idea_id ?></h1>
-    <div class="idea">
-        <div class="idea-description"><?= $description ?></div>
-        <div class="idea-tags">
-            <?php
-            $tags = $session->sql->query("SELECT `tag` FROM `tags` WHERE `idea_id` = $idea_id");
-            while ($tag = $tags->fetch_assoc()) echo "<a href='/tag/{$tag['tag']}' class='idea-tag'>{$tag['tag']}</a>";
-            ?>
+    <div class="flex-container">
+        <h1>Idea #<?= $idea_id ?></h1>
+        <div class="idea">
+            <div class="idea-description"><?= $description ?></div>
+            <div class="idea-tags">
+                <?php
+                $tags = $session->sql->query("SELECT `tag` FROM `tags` WHERE `idea_id` = $idea_id");
+                while ($tag = $tags->fetch_assoc()) echo "<a href='/tag/{$tag['tag']}' class='idea-tag'>{$tag['tag']}</a>";
+                ?>
+            </div>
         </div>
     </div>
 </div>
