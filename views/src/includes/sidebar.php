@@ -1,7 +1,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-    <a class="sidebar-brand brand-logo" style="padding: 0;" href="/favorites"><img style='margin-left: 60px; height: 35px; vertical-align: top;' src='/assets/images/logo/logo-transparent-white-898x303.png'></a>
-    <a class="sidebar-brand brand-logo-mini" style="padding: 0;" href="/favorites"><img style='margin-left: 25px; width: 25px; height: 25px;  vertical-align: text-top;' src='/assets/images/icon/icon-white-transparent-717x671-no-pad.png'></a>
+    <a class="sidebar-brand brand-logo" style="padding: 0;" href="/favorites"><img style='margin-left: 60px; height: 35px; vertical-align: top;' src='/assets/images/logo/qi_logo.png'></a>
+    <a class="sidebar-brand brand-logo-mini" style="padding: 0;" href="/favorites"><img style='margin-left: 25px; width: 25px; height: 25px;  vertical-align: text-top;' src='/assets/images/icon/qi_icon.png'></a>
   </div>
   <ul class="nav">
     <li class='nav-item menu-items'>
