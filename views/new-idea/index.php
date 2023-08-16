@@ -59,13 +59,14 @@ $session->header("Idea Submission");
     .description {
         resize: none;
         overflow: auto;
-        height: calc(100% - 120px);
-        max-height: calc(100% - 120px);
-        min-height: calc(100% - 120px);
+        height: calc(100% - 200px);
+        max-height: calc(100% - 200px);
+        min-height: calc(100% - 200px);
         width: 100%;
         max-width: 100%;
         min-width: 100%;
-        padding: 5px;
+        padding: 10px;
+        border-radius: 10px;
     }
 </style>
 
