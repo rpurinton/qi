@@ -165,6 +165,45 @@ $session->header("Idea Submission");
             e.returnValue = "";
         }
     });
+
+    function final_submit() {
+        // placeholder for form submission
+    }
+
+    // client-side validation prior to form submission
+    document.querySelector("button[type='submit']").addEventListener("click", function(e) {
+        // prevent the form from submitting
+        e.preventDefault();
+        // check if the description is empty
+        if (document.getElementById("description").value.length == 0) {
+            // display an error message
+            alert("You must enter a description before submitting your idea.");
+            // exit the function
+            return;
+        }
+        // check if the privacy toggle is checked
+        if (privacyToggle.checked) {
+            // check if the license dropdown is set to a valid value
+            if (licenseDropdown.value == 0) {
+                // display an error message
+                alert("You must select a license before submitting your idea.");
+                // exit the function
+                return;
+            }
+        }
+        // check that if public that a license type is selected
+        if (!privacyToggle.checked) {
+            // check if the license dropdown is set to a valid value
+            if (licenseDropdown.value != 0) {
+                // display an error message
+                alert("You must select a license if privacy is set to Public.");
+                // exit the function
+                return;
+            }
+        }
+        // submit the form
+        final_submit();
+    });
 </script>
 <?php
 $session->footer([]);
