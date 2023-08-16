@@ -54,6 +54,7 @@ $session->header("Idea Submission");
         font-weight: bold;
         text-align-last: center;
         line-height: 100%;
+        border: 1px solid #000;
     }
 
     .description {
