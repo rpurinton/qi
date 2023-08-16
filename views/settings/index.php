@@ -194,7 +194,7 @@ $session->header("Settings");
                     <input type="hidden" name="refresh" value="true">
                     <div class="card-footer">
                         <center>
-                            <div style="max-width: 270px;">To change any of the above, update your Discord account first, then click Resfresh.</div>
+                            <div style="max-width: 270px;">To change any of the above, update your Discord account first, then</div>
                             <button class="btn btn-primary"><i style="vertical-align: middle;" class="mdi mdi-refresh"></i> Refresh</button>
                             <div>Last Refreshed</div>
                             <div><?= $session->user["login_last"] ?> UTC</div>
