@@ -67,6 +67,7 @@ $session->header("Idea Submission");
         min-width: 100%;
         padding: 10px;
         margin: 10px;
+        margin-right: 10px;
         border-radius: 10px;
     }
 </style>
