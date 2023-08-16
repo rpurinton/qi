@@ -29,15 +29,16 @@ $session->header("Idea #$idea_id");
         <div class="idea">
             <div class="idea-description"><?= $description ?></div>
             <div class="idea-license">
-                <h2>License</h2>
+                <h3>License</h3>
                 <div class="idea-license-type"><?= $license_type ?></div>
             </div>
             <div class="idea-tags">
-                <h2>Tags</h2>
+                <h3>Tags</h3>
                 <div class="idea-tags">
                     <?php
                     $tags = $session->sql->query("SELECT `tag` FROM `tags` WHERE `idea_id` = $idea_id");
-                    while ($tag = $tags->fetch_assoc()) echo "<a href='/tag/{$tag['tag']}' class='idea-tag'>{$tag['tag']}</a>";
+                    if ($tags->num_rows == 0) echo "<div class='idea-tag'>None</div>";
+                    else while ($tag = $tags->fetch_assoc()) echo "<a href='/tag/{$tag['tag']}' class='idea-tag'>{$tag['tag']}</a>";
                     ?>
                 </div>
             </div>
