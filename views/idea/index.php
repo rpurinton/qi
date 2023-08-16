@@ -19,7 +19,7 @@ $session->header("Idea #$idea_id");
 
 </style>
 <div class="discroller">
-    <div class="flex-container">
+    <div>
         <h1>Idea #<?= $idea_id ?></h1>
         <div class="idea">
             <div class="idea-description"><?= $description ?></div>
