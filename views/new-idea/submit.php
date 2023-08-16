@@ -28,7 +28,7 @@ if ($privacy_toggle && $count == 0) {
 // ESCAPE
 $description = $session->sql->escape($description);
 // privacy toggle is a bool, true if public false if private force it to be either 0 or 1
-$privacy_toggle = $privacy_toggle ? 1 : 0;
+$privacy_toggle = $privacy_toggle ? 'public' : 'private';
 $license_dropdown = $session->sql->escape($license_dropdown);
 // INSERT
 $response["idea_id"] = $session->sql->insert("INSERT INTO `ideas`

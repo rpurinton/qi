@@ -42,6 +42,9 @@ $session->header("Idea #$idea_id");
                 <td style="padding: 2px;"><?= $date_of_last_update ?></td>
             </tr>
             <tr>
+                <td style="padding: 2px;">Visibility</td>
+                <td style="padding: 2px;"><?= $visibility ?></td>
+            <tr>
                 <td style="padding: 2px;">License</td>
                 <td style="padding: 2px;"><a href='/license/<?= $license_type_id ?>'><?= $license_type ?></a></td>
         </table>
