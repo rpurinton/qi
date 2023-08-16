@@ -23,6 +23,7 @@ $session->header("Idea Submission");
     }
 
     .control-group {
+        padding-left: 0;
         margin: 0;
         margin-bottom: 10px;
         max-width: calc(100% - 10px);
