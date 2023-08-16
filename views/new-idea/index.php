@@ -222,7 +222,7 @@ $session->header("Idea Submission");
             .then(response => response.json())
             .then(data => {
                 // check if the response was successful
-                if (data.success) {
+                if (data.idea_id) {
                     // redirect to /idea/{idea_id}
                     window.location.href = "/idea/" + data.idea_id;
                 } else {
@@ -235,6 +235,9 @@ $session->header("Idea Submission");
             .catch(error => {
                 // display an error message
                 alert(error);
+                // remove the overlay
+                document.body.removeChild(overlay);
+            }).finally(() => {
                 // remove the overlay
                 document.body.removeChild(overlay);
             });
