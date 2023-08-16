@@ -67,8 +67,8 @@ if (!$agree_tos) {
     echo json_encode(array("message" => "Please agree to the Terms of Service."));
     exit();
 }
-extract($session->sql->single("SELECT min(`license_type_id`) as `min_id`, max(`license_type_id`) as `max_id` FROM `license_types`"));
-if ($privacy_toggle && ($license_dropdown < $min_id || $license_dropdown > $max_id)) {
+extract($session->sql->single("SELECT count(1) as `count` FROM `license_types` WHERE `license_type_id` = '$license_dropdown'"));
+if ($privacy_toggle && $count == 0) {
     echo json_encode(array("message" => "Please select a valid license."));
     exit();
 }
