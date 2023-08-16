@@ -213,7 +213,7 @@ $session->header("Idea Submission");
         // add the privacy toggle to the form data
         formData.append("privacy-toggle", privacyToggle.checked);
         // add the license dropdown to the form data
-        formData.append("license-dropdown", licenseDropdown.selectedIndex);
+        formData.append("license-dropdown", licenseDropdown.value);
         // add the agree to TOS checkbox to the form data
         formData.append("agree-tos", document.getElementById("agree-tos").checked);
 
@@ -260,7 +260,7 @@ $session->header("Idea Submission");
         // check if the privacy toggle is checked
         if (privacyToggle.checked) {
             // check if the license dropdown is set to a valid value
-            if (licenseDropdown.selectedIndex == 0 || licenseDropdown.selectedIndex == -1 || licenseDropdown.selectedIndex == null || licenseDropdown.selectedIndex == undefined) {
+            if (licenseDropdown.value == 0 || licenseDropdown.value == -1 || licenseDropdown.value == null || licenseDropdown.value == undefined) {
                 // display an error message
                 alert("You must select a license before submitting your idea.");
                 // exit the function
