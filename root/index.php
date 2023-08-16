@@ -179,7 +179,7 @@ $session->header("𝗤𝘂𝗮𝗻𝘁𝘂𝗺 𝗜𝗻𝗻𝗼𝘃𝗮𝘁𝗶�
 <div class="discroller">
     <div class="flexgrow">
         <div class="mainlogo">
-            <img class="mainlogoimage" src="/assets/images/logo/logo-transparent-white-898x303.png" alt="𝗤𝘂𝗮𝗻𝘁𝘂𝗺 𝗜𝗻𝗻𝗼𝘃𝗮𝘁𝗶𝗼𝗻𝘀">
+            <img class="mainlogoimage" src="/assets/images/logo/qi_logo.png" alt="𝗤𝘂𝗮𝗻𝘁𝘂𝗺 𝗜𝗻𝗻𝗼𝘃𝗮𝘁𝗶𝗼𝗻𝘀">
         </div>
         <div class="searchbox">
             <i class="mdi mdi-magnify"></i>
