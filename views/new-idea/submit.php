@@ -73,7 +73,8 @@ if ($privacy_toggle && ($license_dropdown < $min_id || $license_dropdown > $max_
 }
 // ESCAPE
 $description = $session->sql->escape($description);
-$privacy_toggle = $session->sql->escape($privacy_toggle);
+// privacy toggle is a bool, true if public false if private force it to be either 0 or 1
+$privacy_toggle = $privacy_toggle ? 1 : 0;
 $license_dropdown = $session->sql->escape($license_dropdown);
 // INSERT
 $response["idea_id"] = $session->sql->insert("INSERT INTO `ideas`
