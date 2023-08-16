@@ -50,7 +50,7 @@ $session->header("Idea Submission");
             <div class="col-auto" style='display: flex; align-items: center;'>
                 <label id="public-label" class="form-check-label" for="privacy-toggle" style='font-size:150%; font-weight:bold;'>Public</label>
             </div>
-            <div class="col-auto" style='display: none; align-items: center;'>
+            <div class="col-auto" id="license-dropdwn" style='display: none; align-items: center;'>
                 <!-- dropdown box listing top 10 common public licenses -->
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Choose a license</option>
@@ -89,14 +89,19 @@ $session->header("Idea Submission");
 <script>
     const privacyToggle = document.getElementById("privacy-toggle");
     const publicLabel = document.getElementById("public-label");
+    const licenseDropdown = document.getElementById("license-dropdwn");
 
     privacyToggle.addEventListener("change", function() {
         if (this.checked) {
             publicLabel.style.color = "#3366FF";
             publicLabel.style.textShadow = "0 0 2px #88AAFF";
+            //display the dropdown
+            licenseDropdown.style.display = "flex";
         } else {
             publicLabel.style.color = ""; // Reset to default color
             publicLabel.style.textShadow = ""; // Reset to default text shadow
+            //hide the dropdown
+            licenseDropdown.style.display = "none";
         }
     });
 </script>
