@@ -47,7 +47,7 @@ class SessionSqlClient
     }
     public function insert($query)
     {
-        $result = $this->query($query . " ON DUPLICATE KEY UPDATE `id`=LAST_INSERT_ID(`id`)");
+        $result = $this->query($query);
         if (!$result) {
             throw new \Exception('MySQL insert error: ' . \mysqli_error($this->sql));
         }
