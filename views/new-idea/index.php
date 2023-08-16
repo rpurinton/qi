@@ -13,22 +13,26 @@ $session->header("Idea Submission");
 </style>
 
 <div class="discroller">
-    <h1>New Idea Submission</h1>
+    <label for="privacy-toggle" class="form-label">Privacy Mode:</label>
+    <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="privacy-toggle" name="privacy-toggle">
+        <label class="form-check-label" for="privacy-toggle">Private</label>
+        <label class="form-check-label" for="privacy-toggle">Public</label>
+    </div>
 
-    <label for="privacy-toggle">Privacy Mode:</label>
-    <input type="checkbox" id="privacy-toggle" name="privacy-toggle">
-
-    <textarea id="description" name="description" rows="10" placeholder="Enter your idea description..."></textarea>
+    <textarea id="description" name="description" rows="10" class="form-control" placeholder="Enter your idea description..."></textarea>
 
     <h2>Attachments</h2>
     <div id="attachments">
         <!-- Thumbnails of attachments will be dynamically generated here -->
     </div>
 
-    <label for="agree-tos">I agree to the Terms of Service:</label>
-    <input type="checkbox" id="agree-tos" name="agree-tos" required>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="agree-tos" name="agree-tos" required>
+        <label class="form-check-label" for="agree-tos">I agree to the Terms of Service</label>
+    </div>
 
-    <button type="submit">Submit</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </div>
 
 <script>
