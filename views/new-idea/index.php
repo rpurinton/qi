@@ -51,7 +51,7 @@ $session->header("Idea Submission");
             </div>
             <div class="col-auto">
                 <label class="form-check-label" for="privacy-toggle">
-                    <h3>Public</h3>
+                    <h3 id="public-label">Public</h3>
                 </label>
             </div>
         </div>
@@ -74,7 +74,7 @@ $session->header("Idea Submission");
 
 <script>
     const privacyToggle = document.getElementById("privacy-toggle");
-    const publicLabel = document.querySelector('label[for="privacy-toggle"][data-value="public"]');
+    const publicLabel = document.queryElementById("public-label");
 
     privacyToggle.addEventListener("change", function() {
         if (this.checked) {
