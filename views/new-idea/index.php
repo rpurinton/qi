@@ -22,6 +22,10 @@ $session->header("Idea Submission");
         margin-left: 10px !important;
     }
 
+    .form-check-input[type="checkbox"] {
+        transform: scale(2);
+    }
+
     .control-group {
         padding-left: 0;
         margin: 0;
