@@ -167,7 +167,77 @@ $session->header("Idea Submission");
     });
 
     function final_submit() {
-        // placeholder for form submission
+        // post the form to /views/new-idea/submit.php
+        // cover the page with a semi-transparent div with a spinner in the middle while the form is submitting
+        // the form, if successful will return a JSON object with the new idea_id
+        // if the form submission fails, display an error message
+        // if the form submission succeeds, redirect to /idea/{idea_id}
+
+        // create the overlay
+        const overlay = document.createElement("div");
+        overlay.style.position = "fixed";
+        overlay.style.top = "0";
+        overlay.style.left = "0";
+        overlay.style.width = "100%";
+        overlay.style.height = "100%";
+        overlay.style.backgroundColor = "rgba(0,0,0,0.5)";
+        overlay.style.zIndex = "1000";
+        overlay.style.display = "flex";
+        overlay.style.justifyContent = "center";
+        overlay.style.alignItems = "center";
+        overlay.style.flexDirection = "column";
+        // create the spinner
+        const spinner = document.createElement("div");
+        spinner.classList.add("spinner-border");
+        spinner.style.width = "3rem";
+        spinner.style.height = "3rem";
+        spinner.style.color = "#f0f8ff";
+        spinner.style.borderTopColor = "#f0f8ff";
+        spinner.style.borderRightColor = "#f0f8ff";
+        spinner.style.borderBottomColor = "#f0f8ff";
+        spinner.style.borderLeftColor = "#000";
+        spinner.style.borderRadius = "50%";
+        spinner.style.animation = "spinner-border 0.75s linear infinite";
+        // add the spinner to the overlay
+        overlay.appendChild(spinner);
+        // add the overlay to the page
+        document.body.appendChild(overlay);
+
+        // create the form data
+        const formData = new FormData();
+        // add the description to the form data
+        formData.append("description", document.getElementById("description").value);
+        // add the privacy toggle to the form data
+        formData.append("privacy-toggle", privacyToggle.checked);
+        // add the license dropdown to the form data
+        formData.append("license-dropdown", licenseDropdown.value);
+        // add the agree to TOS checkbox to the form data
+        formData.append("agree-tos", document.getElementById("agree-tos").checked);
+
+        // post the form data to /views/new-idea/submit.php
+        fetch("/views/new-idea/submit.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // check if the response was successful
+                if (data.success) {
+                    // redirect to /idea/{idea_id}
+                    window.location.href = "/idea/" + data.idea_id;
+                } else {
+                    // display an error message
+                    alert(data.message);
+                    // remove the overlay
+                    document.body.removeChild(overlay);
+                }
+            })
+            .catch(error => {
+                // display an error message
+                alert(error);
+                // remove the overlay
+                document.body.removeChild(overlay);
+            });
     }
 
     // client-side validation prior to form submission
