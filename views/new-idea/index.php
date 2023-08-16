@@ -88,9 +88,9 @@ $session->header("Idea Submission");
             </div>
         </div>
     </div>
-    <div class="col-auto" id="license-dropdown" style='display: flex; visibility: hidden; align-items: center; justify-content: center;'>
+    <div class="col-auto" style='display: flex; visibility: hidden; align-items: center; justify-content: center;'>
         <!-- dropdown box listing top 10 common public licenses -->
-        <select class="form-select form-control" aria-label="License" style='color:#f0f8ff; text-align: center;'>
+        <select id="license-dropdown" class="form-select form-control" aria-label="License" style='color:#f0f8ff; text-align: center;'>
             <?php
             $result = $session->sql->query("SELECT * FROM `license_types`;");
             while ($row = $result->fetch_assoc()) {
@@ -258,8 +258,7 @@ $session->header("Idea Submission");
         // check if the privacy toggle is checked
         if (privacyToggle.checked) {
             // check if the license dropdown is set to a valid value
-            console.log(licenseDropdown);
-            if (licenseDropdown.selectedIndex == 0 || licenseDropdown.selectedIndex == null || licenseDropdown.selectedIndex == "" || licenseDropdown.selectedIndex == undefined) {
+            if (licenseDropdown.selectedIndex == 0 || licenseDropdown.selectedIndex == -1 || licenseDropdown.selectedIndex == null || licenseDropdown.selectedIndex == undefined) {
                 // display an error message
                 alert("You must select a license before submitting your idea.");
                 // exit the function
