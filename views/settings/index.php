@@ -125,7 +125,7 @@ Array ( [id] => 363853952749404162
     $session->sql->multi($query);
     $session->refresh();
 }
-$session->header("Configurações");
+$session->header("Settings");
 ?>
 <style>
     th {
@@ -143,7 +143,7 @@ $session->header("Configurações");
         <div class="flex-container">
             <div class="card">
                 <div class="card-header">
-                    <h3>Perfil do Discord</h3>
+                    <h3>Discord Profile</h3>
                 </div>
                 <div class="card-body">
                     <?php
@@ -165,11 +165,11 @@ $session->header("Configurações");
                             <td><?= $discord_id ?></td>
                         </tr>
                         <tr>
-                            <th>Nome de usuário</th>
+                            <th>Username</th>
                             <td><?= $discord_username ?></td>
                         </tr>
                         <tr>
-                            <th>Nome de exibição</th>
+                            <th>Display As/th>
                             <td><?= $discord_global_name ?></td>
                         </tr>
                         <tr>
@@ -177,7 +177,7 @@ $session->header("Configurações");
                             <td><img src="<?= $discord_avatar ?>" width="64" height="64"></td>
                         </tr>
                         <tr>
-                            <th>Discriminador</th>
+                            <th>Discriminator</th>
                             <td><?= $discord_discriminator ?></td>
                         </tr>
                         <tr>
@@ -185,7 +185,7 @@ $session->header("Configurações");
                             <td><?= $discord_email ?></td>
                         </tr>
                         <tr>
-                            <th>Verificado</th>
+                            <th>Verified</th>
                             <td><?= $discord_verified ?></td>
                         </tr>
                     </table>
@@ -194,9 +194,9 @@ $session->header("Configurações");
                     <input type="hidden" name="refresh" value="true">
                     <div class="card-footer">
                         <center>
-                            <div style="max-width: 270px;">Se você quiser mudar alguma coisa, mude primeiro no Discord e depois clique em Atualizar.</div>
-                            <button class="btn btn-primary"><i style="vertical-align: middle;" class="mdi mdi-refresh"></i> Atualizar</button>
-                            <div>Última atualização:</div>
+                            <div style="max-width: 270px;">To change any of the above, update your Discord account first, then click Resfresh.</div>
+                            <button class="btn btn-primary"><i style="vertical-align: middle;" class="mdi mdi-refresh"></i> Refresh</button>
+                            <div>Last Refreshed</div>
                             <div><?= $session->user["login_last"] ?> UTC</div>
                         </center>
                     </div>
