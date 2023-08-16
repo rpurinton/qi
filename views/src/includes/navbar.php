@@ -43,7 +43,7 @@
     <ul class="navbar-nav w-100">
       <li class="nav-item w-100">
         <form style="display: flex; white-space: nowrap; vertical-align: middle; margin: 3px !important; max-width: 400px;" class="nav-link mt-2 mt-md-0 d-lg-flex search">
-          <input style="width: calc(100% - 16px); max-width: 310px;" id='search' type=" text" class="form-control" placeholder="Procure..."></input>
+          <input style="width: calc(100% - 16px); max-width: 310px;" id='search' type=" text" class="form-control" placeholder="Search..."></input>
           <span id='search-clear' class="mdi mdi-close-circle"></span></input>
         </form>
       </li>
@@ -56,7 +56,7 @@
           <a href="/login">
             <div class="navbar-profile" style="flex-wrap: nowrap; white-space: nowrap; display: flex; align-items: center;">
               <img class="img-xs rounded-circle" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Entrar com Discórd">
-              <p class="mb-0 d-none d-sm-block navbar-profile-name">&nbsp;Entrar com Discórd</p>
+              <p class="mb-0 d-none d-sm-block navbar-profile-name">&nbsp;Login with Discórd</p>
               <i class="mdi mdi-menu-down d-none d-sm-block"></i>
             </div>
           </a>

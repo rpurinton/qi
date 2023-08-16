@@ -197,8 +197,8 @@ $session->header("𝗤𝘂𝗮𝗻𝘁𝘂𝗺 𝗜𝗻𝗻𝗼𝘃𝗮𝘁𝗶�
             𝗤𝘂𝗮𝗻𝘁𝘂𝗺 𝗜𝗻𝗻𝗼𝘃𝗮𝘁𝗶𝗼𝗻𝘀 &copy;2023 Laozi 老子
         </div>
         <div class="linksright">
-            <a href="/privacy" target="_blank">Privacidade</a>
-            <a href="/tos" target="_blank">Termos</a>
+            <a href="/privacy" target="_blank">Privacy</a>
+            <a href="/tos" target="_blank">Terms</a>
         </div>
     </div>
     <script>
