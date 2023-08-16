@@ -321,15 +321,6 @@ class Session implements \SessionHandlerInterface
         else echo ("$key undefined");
     }
 
-    public function power_color($power)
-    {
-        $color = "#00b267";
-        if ($power > 135000) $color = "#3391ff";
-        if ($power > 170000) $color = "#ff002e";
-        if ($power > 205000) $color = "#ff0";
-        return $color;
-    }
-
     public function __destruct()
     {
         $this->close();
