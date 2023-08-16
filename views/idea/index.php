@@ -21,6 +21,7 @@ extract($result);
 require_once(__DIR__ . '/../src/Utilities.php');
 $utilities = new Utilities();
 $description = $utilities->markdown_to_html($description);
+$visibility = $privacy_status ? 'Public' : 'Private';
 $session->header("Idea #$idea_id");
 ?>
 <style>
