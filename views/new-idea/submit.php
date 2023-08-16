@@ -70,6 +70,7 @@ if (!$agree_tos) {
 extract($session->sql->single("SELECT min(`license_type_id`) as `min_id`, max(`license_type_id`) as `max_id` FROM `license_types`"));
 if ($privacy_toggle && ($license_dropdown < $min_id || $license_dropdown > $max_id)) {
     echo json_encode(array("message" => "Please select a valid license."));
+    exit();
 }
 // ESCAPE
 $description = $session->sql->escape($description);
