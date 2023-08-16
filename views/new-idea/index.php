@@ -80,7 +80,7 @@ $session->header("Idea Submission");
     </div>
     <!-- Button to submit the form with the I agree to TOS above the button -->
     <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-        <div class="form-check">
+        <div class="form-check" style="width: 170px;">
             <!-- display checkbox required checked readonly -->
             <input class="form-check-input" type="checkbox" value="" id="agree-tos" name="agree-tos" required checked disabled>
             <label class="form-check-label" for="agree-tos">I agree to the <a target="_blank" href='/tos'>Terms of Service<a></label>
