@@ -21,7 +21,7 @@ $session->header("Idea #$idea_id");
         <div class="idea-description"><?= $description ?></div>
         <div class="idea-tags">
             <?php
-            $tags = $sql->query("SELECT `tag` FROM `tags` WHERE `idea_id` = $idea_id");
+            $tags = $session->sql->query("SELECT `tag` FROM `tags` WHERE `idea_id` = $idea_id");
             while ($tag = $tags->fetch_assoc()) echo "<div class='idea-tag'>{$tag['tag']}</div>";
             ?>
         </div>
