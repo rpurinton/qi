@@ -85,16 +85,12 @@ $session->header("Idea Submission");
             <div class="col-auto" id="license-dropdwn" style='display: flex; visibility:hidden; align-items: center;'>
                 <!-- dropdown box listing top 10 common public licenses -->
                 <select class="form-select form-control" aria-label="License" style='max-width: 69px; color:#f0f8ff;'>
-                    <option value="1" selected>MIT</option>
-                    <option value="2">GNU GPLv3</option>
-                    <option value="3">Apache 2.0</option>
-                    <option value="4">GNU GPLv2</option>
-                    <option value="7">GNU LGPLv3</option>
-                    <option value="8">GNU LGPLv2.1</option>
-                    <option value="9">Mozilla 2.0</option>
-                    <option value="10">Eclipse 2.0</option>
-                    <option value="11">Other/Custom</option>
-                    <option value="12">None</option>
+                    <?php
+                    $result = $session->sql->query("SELECT * FROM `license_types`;");
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<option value='" . $row['license_type_id'] . "'>" . $row['type_name'] . "</option>";
+                    }
+                    ?>
                 </select>
             </div>
         </div>
