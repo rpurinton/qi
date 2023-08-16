@@ -82,7 +82,7 @@
                 </div>
               </div>
               <div class="preview-item-content">
-                <p class="preview-subject mb-1">Configurações</p>
+                <p class="preview-subject mb-1">Settings</p>
               </div>
             </a>
             <!-- Logout -->
