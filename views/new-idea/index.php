@@ -91,9 +91,9 @@ $session->header("Idea Submission");
     <div id="attachments" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
         <!-- Thumbnails of attachments will be dynamically generated here -->
     </div>
-    <!-- Button to add more attachments -->
+    <!-- Give hint to drag files to the text area to upload new attachments -->
     <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-        <button type="button" class="btn btn-primary" style="margin: 10px;">Add Attachment</button>
+        <label for="attachments" style="font-size: 125%; font-weight: bold;">Drag files here to upload attachments</label>
     </div>
     <!-- Button to submit the form with the I agree to TOS above the button -->
     <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
