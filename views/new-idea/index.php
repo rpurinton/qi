@@ -157,6 +157,14 @@ $session->header("Idea Submission");
         // display a message to login
         document.getElementById("description").placeholder = "You must be logged in to submit an idea.";
     }
+
+    // display a warning if there is unsaved text in the textbox if they attempt to navigate away from the page
+    window.addEventListener("beforeunload", function(e) {
+        if (document.getElementById("description").value.length > 0) {
+            e.preventDefault();
+            e.returnValue = "";
+        }
+    });
 </script>
 <?php
 $session->footer([]);
