@@ -14,7 +14,7 @@ $result = $session->sql->single("SELECT
         `discord_users`.`discord_avatar`
     FROM `ideas`
     LEFT JOIN `license_types` ON `ideas`.`license_type_id` = `license_types`.`license_type_id`
-    LEFT JOIN `discord_users` ON `ideas`.`author` = `discord_users`.`discord_id`
+    LEFT JOIN `discord_users` ON `ideas`.`discord_id` = `discord_users`.`discord_id`
     WHERE `idea_id` = '$idea_id'");
 if (!$result) $session->redirect('/search');
 extract($result);
