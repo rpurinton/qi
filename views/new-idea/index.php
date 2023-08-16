@@ -83,19 +83,17 @@ $session->header("Idea Submission");
                 <label id="public-label" class="form-check-label" for="privacy-toggle" style='font-size:100%; font-weight:bold;'>Public</label>
             </div>
         </div>
-        <div class="row">
-            <div class="col-auto" id="license-dropdown" style='display: none; align-items: center;'>
-                <!-- dropdown box listing top 10 common public licenses -->
-                <select class="form-select form-control" aria-label="License" style='max-width: 69px; color:#f0f8ff; text-align: center;'>
-                    <?php
-                    $result = $session->sql->query("SELECT * FROM `license_types`;");
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<option value='" . $row['license_type_id'] . "'>" . $row['type_name'] . "</option>";
-                    }
-                    ?>
-                </select>
-            </div>
-        </div>
+    </div>
+    <div class="col-auto" id="license-dropdown" style='display: none; align-items: center;'>
+        <!-- dropdown box listing top 10 common public licenses -->
+        <select class="form-select form-control" aria-label="License" style='color:#f0f8ff; text-align: center;'>
+            <?php
+            $result = $session->sql->query("SELECT * FROM `license_types`;");
+            while ($row = $result->fetch_assoc()) {
+                echo "<option value='" . $row['license_type_id'] . "'>" . $row['type_name'] . "</option>";
+            }
+            ?>
+        </select>
     </div>
     <!-- make description text area fill the remaining space, take focus by default, and support multiline text entry with word wrapping and scrolling.  it should never grow beyond it's original size. -->
     <textarea id="description" name="description" class="form-control control-group description" autofocus placeholder="Enter your idea here..." required></textarea>
@@ -115,27 +113,28 @@ $session->header("Idea Submission");
         </div>
         <button type="submit" class="btn btn-primary">Submit The Idea</button>
     </div>
+</div>
 
-    <script>
-        const privacyToggle = document.getElementById("privacy-toggle");
-        const publicLabel = document.getElementById("public-label");
-        const licenseDropdown = document.getElementById("license-dropdown");
+<script>
+    const privacyToggle = document.getElementById("privacy-toggle");
+    const publicLabel = document.getElementById("public-label");
+    const licenseDropdown = document.getElementById("license-dropdown");
 
-        privacyToggle.addEventListener("change", function() {
-            if (this.checked) {
-                publicLabel.style.color = "#3366FF";
-                publicLabel.style.textShadow = "0 0 2px #88AAFF";
-                //display the dropdown
-                licenseDropdown.style.display = "flex";
-            } else {
-                publicLabel.style.color = ""; // Reset to default color
-                publicLabel.style.textShadow = ""; // Reset to default text shadow
-                //hide the dropdown
-                licenseDropdown.style.display = "none";
-            }
-        });
-    </script>
+    privacyToggle.addEventListener("change", function() {
+        if (this.checked) {
+            publicLabel.style.color = "#3366FF";
+            publicLabel.style.textShadow = "0 0 2px #88AAFF";
+            //display the dropdown
+            licenseDropdown.style.display = "flex";
+        } else {
+            publicLabel.style.color = ""; // Reset to default color
+            publicLabel.style.textShadow = ""; // Reset to default text shadow
+            //hide the dropdown
+            licenseDropdown.style.display = "none";
+        }
+    });
+</script>
 
-    <?php
-    $session->footer([]);
-    ?>
+<?php
+$session->footer([]);
+?>
