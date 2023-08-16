@@ -69,13 +69,11 @@ $session->header("Idea Submission");
     </div>
 
     <textarea id="description" name="description" rows="10" class="form-control" placeholder="Enter your idea description..."></textarea>
-
-    <h2>Attachments</h2>
-    <div id="attachments">
+    <div id="attachments" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
         <!-- Thumbnails of attachments will be dynamically generated here -->
     </div>
     <!-- Button to add more attachments -->
-    <div style="display: flex;">
+    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
         <button type="button" class="btn btn-primary" style="margin: 10px;">Add Attachment</button>
     </div>
     <!-- Button to submit the form with the I agree to TOS above the button -->
