@@ -5,6 +5,14 @@
   </div>
   <ul class="nav">
     <li class='nav-item menu-items'>
+      <a class='nav-link' href='/new-idea'>
+        <span class='menu-icon'>
+          <i class='mdi mdi-lightbulb-on-outline'></i>
+        </span>
+        <span class='menu-title' style='margin-left: 5px; font-size: 100%;'><b>+ New Idea</b></span>
+      </a>
+    </li>
+    <li class='nav-item menu-items'>
       <a class='nav-link' href='/'>
         <span class='menu-icon'>
           <i class='mdi mdi-home'></i>
