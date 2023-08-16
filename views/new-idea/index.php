@@ -106,7 +106,7 @@ $session->header("Idea Submission");
     </div>
     <!-- Give hint to drag files to the text area to upload new attachments -->
     <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-        <label for="attachments"><i class="mdi mdi-arrow-up-bold-circle-outline" style='vertical-align:middle;'></i> Drag files here to upload attachments<i class='mdi mdi-arrow-up-bold-circle-outline' style='vertical-align: middle;'></i></label>
+        <label for="attachments"><i class="mdi mdi-arrow-up-bold-circle-outline" style='vertical-align:middle;'></i> Drag files here to upload attachments <i class='mdi mdi-arrow-up-bold-circle-outline' style='vertical-align: middle;'></i></label>
     </div>
     <!-- Button to submit the form with the I agree to TOS above the button -->
     <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
