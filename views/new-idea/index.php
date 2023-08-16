@@ -74,7 +74,7 @@ $session->header("Idea Submission");
 
 <script>
     const privacyToggle = document.getElementById("privacy-toggle");
-    const publicLabel = document.queryElementById("public-label");
+    const publicLabel = document.getElementById("public-label");
 
     privacyToggle.addEventListener("change", function() {
         if (this.checked) {
