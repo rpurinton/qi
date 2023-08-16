@@ -22,12 +22,8 @@ $session->header("Idea #$idea_id");
         <div class="idea-tags">
             <?php
             $tags = $session->sql->query("SELECT `tag` FROM `tags` WHERE `idea_id` = $idea_id");
-            while ($tag = $tags->fetch_assoc()) echo "<div class='idea-tag'>{$tag['tag']}</div>";
+            while ($tag = $tags->fetch_assoc()) echo "<a href='/tag/{$tag['tag']}' class='idea-tag'>{$tag['tag']}</a>";
             ?>
-        </div>
-        <div class="idea-votes">
-            <div class="idea-vote" data-vote="up" data-idea="<?= $idea_id ?>">Up</div>
-            <div class="idea-vote" data-vote="down" data-idea="<?= $idea_id ?>">Down</div>
         </div>
     </div>
 </div>
