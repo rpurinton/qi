@@ -237,9 +237,6 @@ $session->header("Idea Submission");
                 alert(error);
                 // remove the overlay
                 document.body.removeChild(overlay);
-            }).finally(() => {
-                // remove the overlay
-                document.body.removeChild(overlay);
             });
     }
 
