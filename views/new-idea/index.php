@@ -83,58 +83,59 @@ $session->header("Idea Submission");
                 <label id="public-label" class="form-check-label" for="privacy-toggle" style='font-size:100%; font-weight:bold;'>Public</label>
             </div>
         </div>
-        <div class="col-auto" id="license-dropdwn" style='display: none; align-items: center;'>
-            <!-- dropdown box listing top 10 common public licenses -->
-            <select class="form-select form-control" aria-label="License" style='max-width: 69px; color:#f0f8ff; text-align: center;'>
-                <?php
-                $result = $session->sql->query("SELECT * FROM `license_types`;");
-                while ($row = $result->fetch_assoc()) {
-                    echo "<option value='" . $row['license_type_id'] . "'>" . $row['type_name'] . "</option>";
-                }
-                ?>
-            </select>
+        <div class="row">
+            <div class="col-auto" id="license-dropdown" style='display: none; align-items: center;'>
+                <!-- dropdown box listing top 10 common public licenses -->
+                <select class="form-select form-control" aria-label="License" style='max-width: 69px; color:#f0f8ff; text-align: center;'>
+                    <?php
+                    $result = $session->sql->query("SELECT * FROM `license_types`;");
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<option value='" . $row['license_type_id'] . "'>" . $row['type_name'] . "</option>";
+                    }
+                    ?>
+                </select>
+            </div>
         </div>
     </div>
-</div>
-<!-- make description text area fill the remaining space, take focus by default, and support multiline text entry with word wrapping and scrolling.  it should never grow beyond it's original size. -->
-<textarea id="description" name="description" class="form-control control-group description" autofocus placeholder="Enter your idea here..." required></textarea>
-<div id="attachments" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-    <!-- Thumbnails of attachments will be dynamically generated here -->
-</div>
-<!-- Give hint to drag files to the text area to upload new attachments -->
-<div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-    <label for="attachments"><i class="mdi mdi-arrow-up-bold-circle-outline" style='vertical-align:middle;'></i> Drag files here to upload attachments <i class='mdi mdi-arrow-up-bold-circle-outline' style='vertical-align: middle;'></i></label>
-</div>
-<!-- Button to submit the form with the I agree to TOS above the button -->
-<div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-    <div class="form-check" style="width: 170px;">
-        <!-- display checkbox required checked readonly -->
-        <input class="form-check-input" type="checkbox" value="" id="agree-tos" name="agree-tos" required checked disabled>
-        <label class="form-check-label" for="agree-tos">I agree to the <a target="_blank" href='/tos'>Terms of Service<a></label>
+    <!-- make description text area fill the remaining space, take focus by default, and support multiline text entry with word wrapping and scrolling.  it should never grow beyond it's original size. -->
+    <textarea id="description" name="description" class="form-control control-group description" autofocus placeholder="Enter your idea here..." required></textarea>
+    <div id="attachments" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+        <!-- Thumbnails of attachments will be dynamically generated here -->
     </div>
-    <button type="submit" class="btn btn-primary">Submit The Idea</button>
-</div>
+    <!-- Give hint to drag files to the text area to upload new attachments -->
+    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+        <label for="attachments"><i class="mdi mdi-arrow-up-bold-circle-outline" style='vertical-align:middle;'></i> Drag files here to upload attachments <i class='mdi mdi-arrow-up-bold-circle-outline' style='vertical-align: middle;'></i></label>
+    </div>
+    <!-- Button to submit the form with the I agree to TOS above the button -->
+    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+        <div class="form-check" style="width: 170px;">
+            <!-- display checkbox required checked readonly -->
+            <input class="form-check-input" type="checkbox" value="" id="agree-tos" name="agree-tos" required checked disabled>
+            <label class="form-check-label" for="agree-tos">I agree to the <a target="_blank" href='/tos'>Terms of Service<a></label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit The Idea</button>
+    </div>
 
-<script>
-    const privacyToggle = document.getElementById("privacy-toggle");
-    const publicLabel = document.getElementById("public-label");
-    const licenseDropdown = document.getElementById("license-dropdwn");
+    <script>
+        const privacyToggle = document.getElementById("privacy-toggle");
+        const publicLabel = document.getElementById("public-label");
+        const licenseDropdown = document.getElementById("license-dropdown");
 
-    privacyToggle.addEventListener("change", function() {
-        if (this.checked) {
-            publicLabel.style.color = "#3366FF";
-            publicLabel.style.textShadow = "0 0 2px #88AAFF";
-            //display the dropdown
-            licenseDropdown.style.display = "flex";
-        } else {
-            publicLabel.style.color = ""; // Reset to default color
-            publicLabel.style.textShadow = ""; // Reset to default text shadow
-            //hide the dropdown
-            licenseDropdown.style.display = "none";
-        }
-    });
-</script>
+        privacyToggle.addEventListener("change", function() {
+            if (this.checked) {
+                publicLabel.style.color = "#3366FF";
+                publicLabel.style.textShadow = "0 0 2px #88AAFF";
+                //display the dropdown
+                licenseDropdown.style.display = "flex";
+            } else {
+                publicLabel.style.color = ""; // Reset to default color
+                publicLabel.style.textShadow = ""; // Reset to default text shadow
+                //hide the dropdown
+                licenseDropdown.style.display = "none";
+            }
+        });
+    </script>
 
-<?php
-$session->footer([]);
-?>
+    <?php
+    $session->footer([]);
+    ?>
