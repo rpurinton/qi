@@ -48,8 +48,7 @@ $session->header("Idea #$idea_id");
                 <div class="idea-tags">
                     <?php
                     $tags = $session->sql->query("SELECT `tag` FROM `tags` WHERE `idea_id` = $idea_id");
-                    if ($tags->num_rows == 0) echo "<div class='idea-tag'>None</div>";
-                    else while ($tag = $tags->fetch_assoc()) echo "<a href='/tag/{$tag['tag']}' class='idea-tag'>{$tag['tag']}</a>";
+                    while ($tag = $tags->fetch_assoc()) echo "<a href='/tag/{$tag['tag']}' class='idea-tag'>{$tag['tag']}</a>";
                     ?>
                 </div>
             </div>
