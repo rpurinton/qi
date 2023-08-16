@@ -57,6 +57,7 @@ $session->header("𝗤𝘂𝗮𝗻𝘁𝘂𝗺 𝗜𝗻𝗻𝗼𝘃𝗮𝘁𝗶�
         width: 75px;
         height: auto;
         margin: 1rem;
+        margin-right: 0;
         margin-bottom: 2rem;
     }
 
