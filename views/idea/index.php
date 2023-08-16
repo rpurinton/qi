@@ -32,18 +32,18 @@ $session->header("Idea #$idea_id");
             <h1>Idea #<?= $idea_id ?></h1>
             <p>by <a href="/user/<?= $discord_id ?>"><img src='https://cdn.discordapp.com/avatars/<?= $discord_id ?>/<?= $discord_avatar ?>.png' style='width: 32px; height: 32px; border-radius: 50%; vertical-align: middle; margin-right: 5px;'><?= $discord_global_name ?></a>
         </div>
-        <table style="padding: 5px;">
+        <table style="padding: 2px;">
             <tr>
-                <td style="padding: 5px;">Created</td>
-                <td style="padding: 5px;"><?= $date_of_creation ?></td>
+                <td style="padding: 2px;">Created</td>
+                <td style="padding: 2px;"><?= $date_of_creation ?></td>
             </tr>
             <tr>
                 <td style="padding: 5px;">Updated</td>
-                <td style="padding: 5px;"><?= $date_of_last_update ?></td>
+                <td style="padding: 2px;"><?= $date_of_last_update ?></td>
             </tr>
             <tr>
-                <td style="padding: 5px;">License</td>
-                <td style="padding: 5px;"><?= $license_type ?></td>
+                <td style="padding: 2px;">License</td>
+                <td style="padding: 2px;"><a href='/license/<?= $license_type_id ?>'><?= $license_type ?></a></td>
         </table>
         <div class="idea">
             <div class="idea-tags">
