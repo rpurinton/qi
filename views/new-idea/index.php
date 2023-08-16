@@ -29,13 +29,17 @@ $session->header("Idea Submission");
     <div class="form-check form-switch control-group">
         <div class="row">
             <div class="col-auto">
-                <label class="form-check-label" for="privacy-toggle">Private</label>
+                <label class="form-check-label" for="privacy-toggle">
+                    <h3>Private</h3>
+                </label>
             </div>
             <div class="col">
                 <input class="form-check-input" type="checkbox" id="privacy-toggle" name="privacy-toggle">
             </div>
             <div class="col-auto">
-                <label class="form-check-label" for="privacy-toggle">Public</label>
+                <label class="form-check-label" for="privacy-toggle">
+                    <h3>Public</h3>
+                </label>
             </div>
         </div>
     </div>
