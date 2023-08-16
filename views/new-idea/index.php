@@ -125,12 +125,12 @@ $session->header("Idea Submission");
             publicLabel.style.color = "#3366FF";
             publicLabel.style.textShadow = "0 0 2px #88AAFF";
             //display the dropdown
-            licenseDropdown.style.visibility = "visible";
+            licenseDropdown.style.display = "flex";
         } else {
             publicLabel.style.color = ""; // Reset to default color
             publicLabel.style.textShadow = ""; // Reset to default text shadow
             //hide the dropdown
-            licenseDropdown.style.visibility = "hidden";
+            licenseDropdown.style.display = "none";
         }
     });
 </script>
