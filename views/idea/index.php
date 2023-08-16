@@ -9,9 +9,12 @@ extract($session->sql->single("SELECT min(`idea_id`) as `min_id`, max(`idea_id`)
 if (!is_numeric($idea_id) || $idea_id < $min_id || $idea_id > $max_id) $session->redirect('/search');
 $result = $session->sql->single("SELECT
         *,
-        `license_types`.`type_name` as `license_type`
+        `license_types`.`type_name` as `license_type`,
+        `discord_users`.`discord_global_name`,
+        `discord_users`.`discord_avatar`
     FROM `ideas`
     LEFT JOIN `license_types` ON `ideas`.`license_type_id` = `license_types`.`license_type_id`
+    LEFT JOIN `discord_users` ON `ideas`.`author` = `discord_users`.`discord_id`
     WHERE `idea_id` = '$idea_id'");
 if (!$result) $session->redirect('/search');
 extract($result);
@@ -26,6 +29,9 @@ $session->header("Idea #$idea_id");
 <div class="discroller">
     <div style="margin: 5px; padding: 5px; border: 1px solid black; border-radius: 10px;">
         <h1>Idea #<?= $idea_id ?></h1>
+        <p>by <a href="/user/<?= $discord_id ?>"><img src='https://cdn.discordapp.com/avatars/<?= $discord_id ?>/<?= $discord_avatar ?>.png' style='width: 32px; height: 32px; border-radius: 50%; vertical-align: middle; margin-right: 5px;'><?= $discord_global_name ?></a>
+        <p>created: <?= $date_of_creation ?></p>
+        <p>updated: <?= $date_of_last_update ?></p>
         <div class="idea">
             <div class="idea-description"><?= $description ?></div>
             <div class="idea-license">
