@@ -19,7 +19,7 @@ $session->header("Idea #$idea_id");
 
 </style>
 <div class="discroller">
-    <div>
+    <div style="margin: 5px; padding: 5px; border: 1px solid black; border-radius: 10px;">
         <h1>Idea #<?= $idea_id ?></h1>
         <div class="idea">
             <div class="idea-description"><?= $description ?></div>
