@@ -12,10 +12,12 @@ $session->header("Idea Submission");
     /* Add any custom CSS styles here */
 
     .form-check-label {
+        margin: 0;
         margin-right: 10px;
     }
 
     .control-group {
+        margin: 0;
         margin-bottom: 10px;
         max-width: calc(100%-10px);
         width: 100%;
