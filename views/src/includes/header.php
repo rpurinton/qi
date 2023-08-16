@@ -2,7 +2,7 @@
 $header = function ($title = "𝗤𝘂𝗮𝗻𝘁𝘂𝗺 𝗜𝗻𝗻𝗼𝘃𝗮𝘁𝗶𝗼𝗻𝘀", $side_nav = true) {
 ?>
   <!DOCTYPE html>
-  <html lang="pt-BR" itemscope itemtype="https://schema.org/WebPage" style='background-color: #111111;'>
+  <html lang="en-US" itemscope itemtype="https://schema.org/WebPage" style='background-color: #111111;'>
 
   <head>
     <meta charset="UTF-8" />
