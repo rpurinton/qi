@@ -31,9 +31,9 @@ if (in_array(strtolower($original_file_extension), ['jpg', 'jpeg', 'png', 'gif',
     $thumbs_dir = __DIR__ . "/uploads/thumbs/$file_hash_prefix1/$file_hash_suffix2/";
     if (!file_exists($thumbs_dir)) mkdir($thumbs_dir, 0777, true);
     $thumb_file_name = $thumbs_dir . $original_file_sha256 . '.jpg';
-    if (file_exists($thumb_file_name)) $thumbnail_url = "/views/new-idea/upload/thumbs/$file_hash_prefix1/$file_hash_suffix2/$original_file_sha256.jpg";
+    if (file_exists($thumb_file_name)) $thumbnail_url = "/views/new-idea/upload/uploads/thumbs/$file_hash_prefix1/$file_hash_suffix2/$original_file_sha256.jpg";
     else {
-        $thumbnail_url = "/views/new-idea/upload/thumbs/$file_hash_prefix1/$file_hash_suffix2/$original_file_sha256.jpg";
+        $thumbnail_url = "/views/new-idea/upload/uploads/thumbs/$file_hash_prefix1/$file_hash_suffix2/$original_file_sha256.jpg";
         exec("convert $final_resting_place -thumbnail 80x80 $thumb_file_name");
         file_exists($thumb_file_name) or die(json_encode(['message' => 'Unable to convert this file.']));
     }
