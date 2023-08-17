@@ -43,6 +43,7 @@
             align-items: center;
             flex-wrap: nowrap;
             padding: 5px;
+            position: relative;
         }
 
         .card-body {
@@ -65,7 +66,7 @@
             align-items: center;
             flex-wrap: nowrap;
             padding: 5px;
-            font-size: 80%;
+            font-size: 70%;
             white-space: nowrap;
         }
 
@@ -111,7 +112,6 @@
             var card = document.createElement("div");
             card.classList.add("card");
             var cardHeader = document.createElement("div");
-            cardHeader.position = "relative";
             cardHeader.classList.add("card-header");
             thumbnail = document.createElement("img");
             thumbnail.classList.add("thumbnail");
