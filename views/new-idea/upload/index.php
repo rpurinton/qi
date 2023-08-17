@@ -23,6 +23,7 @@ $final_file_size = filesize($final_resting_place) or die(json_encode(['message' 
 $final_file_size == $original_file_size or die(json_encode(['message' => 'Final file size does not match original file size']));
 $final_file_sha256 = hash_file('sha256', $final_resting_place) or die(json_encode(['message' => 'Failed to hash final file']));
 $final_file_sha256 == $original_file_sha256 or die(json_encode(['message' => 'Final file hash does not match original file hash']));
+$has_thumb = 0;
 if (in_array(strtolower($original_file_extension), ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg'])) {
     $thumbs_dir = __DIR__ . "/uploads/thumbs/$file_hash_prefix1/$file_hash_suffix2/";
     if (!file_exists($thumbs_dir)) mkdir($thumbs_dir, 0777, true);
@@ -30,9 +31,10 @@ if (in_array(strtolower($original_file_extension), ['jpg', 'jpeg', 'png', 'gif',
     if (file_exists($thumb_file_name)) $thumbnail_url = "/views/new-idea/upload/thumbs/$file_hash_prefix1/$file_hash_suffix2/$original_file_sha256.jpg";
     else {
         $thumbnail_url = "/views/new-idea/upload/thumbs/$file_hash_prefix1/$file_hash_suffix2/$original_file_sha256.jpg";
-        exec("convert $final_resting_place -thumbnail 80x80 $thumb_file_name") or die(json_encode(['message' => 'Failed to create thumbnail']));
-        file_exists($thumb_file_name) or die(json_encode(['message' => 'Thumbnail not created']));
+        exec("convert $final_resting_place -thumbnail 80x80 $thumb_file_name");
+        file_exists($thumb_file_name) or die(json_encode(['message' => 'Unable to convert this file.']));
     }
+    $has_thumb = 1;
 }
 $mime_type = mime_content_type($final_resting_place) or die(json_encode(['message' => 'Failed to get mime type']));
 $session->sql->query("INSERT INTO `attachments` (`sha256`,`user_id`, `file_name`, `file_type`, `file_path`,`file_size`,`has_thumb`) VALUES  ('$original_file_sha256', '{$session->user_id}', '$original_file_name', '$mime_type', '$final_resting_place', '$final_file_size','$has_thumb');") or die(json_encode(['message' => 'Failed to insert into DB']));
