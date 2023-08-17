@@ -17,8 +17,8 @@ file_put_contents($random_file_name, file_get_contents('php://input')) or die(js
 $original_file_size = filesize($random_file_name) or die(json_encode(['message' => 'Failed to get original file size']));
 $original_file_sha256 = hash_file('sha256', $random_file_name) or die(json_encode(['message' => 'Failed to hash original file']));
 $file_hash_prefix1 = substr($original_file_sha256, 0, 2) or die(json_encode(['message' => 'Failed to get file hash prefix']));
-$file_hash_suffix2 = substr($original_file_sha256, 2, 2) or die(json_encode(['message' => 'Failed to get file hash suffix']));
-$resting_place = __DIR__ . "/uploads/$file_hash_prefix1/$file_hash_suffix2/";
+$file_hash_prefix2 = substr($original_file_sha256, 2, 2) or die(json_encode(['message' => 'Failed to get file hash suffix']));
+$resting_place = __DIR__ . "/uploads/$file_hash_prefix1/$file_hash_prefix2/";
 if (!file_exists($resting_place)) mkdir($resting_place, 0777, true) or die(json_encode(['message' => 'Failed to create resting place']));
 $final_resting_place = $resting_place . $original_file_sha256 . '.' . $original_file_extension;
 file_exists($final_resting_place) or rename($random_file_name, $final_resting_place) or die(json_encode(['message' => 'Failed to move original file to resting place']));
@@ -28,14 +28,14 @@ $final_file_sha256 = hash_file('sha256', $final_resting_place) or die(json_encod
 $final_file_sha256 == $original_file_sha256 or die(json_encode(['message' => 'Final file hash does not match original file hash']));
 $has_thumb = 0;
 if (in_array(strtolower($original_file_extension), ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg'])) {
-    $thumbs_dir = __DIR__ . "/uploads/thumbs/$file_hash_prefix1/$file_hash_suffix2/";
-    if (!file_exists($thumbs_dir)) mkdir($thumbs_dir, 0777, true);
+    $thumbs_dir = __DIR__ . "/uploads/thumbs/$file_hash_prefix1/$file_hash_prefix2/";
+    if (!file_exists($thumbs_dir)) mkdir($thumbs_dir, 0777, true) or die(json_encode(['message' => 'Failed to create thumbs dir']));
     $thumb_file_name = $thumbs_dir . $original_file_sha256 . '.jpg';
-    if (file_exists($thumb_file_name)) $thumbnail_url = "/views/new-idea/upload/uploads/thumbs/$file_hash_prefix1/$file_hash_suffix2/$original_file_sha256.jpg";
+    if (file_exists($thumb_file_name)) $thumbnail_url = "/views/new-idea/upload/uploads/thumbs/$file_hash_prefix1/$file_hash_prefix2/$original_file_sha256.jpg";
     else {
-        $thumbnail_url = "/views/new-idea/upload/uploads/thumbs/$file_hash_prefix1/$file_hash_suffix2/$original_file_sha256.jpg";
         exec("convert $final_resting_place -thumbnail 80x80 $thumb_file_name");
         file_exists($thumb_file_name) or die(json_encode(['message' => 'Unable to convert this file.']));
+        $thumbnail_url = "/views/new-idea/upload/uploads/thumbs/$file_hash_prefix1/$file_hash_prefix2/$original_file_sha256.jpg";
     }
     $has_thumb = 1;
 }
