@@ -19,13 +19,24 @@
         }
     </style>
     <script>
+        var dropbox = document.getElementById("dropbox");
+
         function handleFileUpload(file) {
+            // create an element in the dropbox for the file with a pie chart progress bar at 0% and a shortened file name below it put an id on the progress bar so we can update it later
+            var progressBar = document.createElement("progress");
+            progressBar.id = file.name + "-progress";
+            progressBar.value = 0;
+            progressBar.max = 100;
+            dropbox.appendChild(progressBar);
+            var fileName = document.createElement("p");
+            fileName.innerHTML = shortenFileName(file.name);
+            progressBar.appendChild(fileName);
+
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "/new-idea/upload/" + file.name, true);
 
             xhr.upload.onprogress = function (e) {
                 var percentCompleted = Math.round((e.loaded / e.total) * 100);
-                var progressBar = document.getElementById(file.name + "-progress");
                 progressBar.value = percentCompleted;
             };
 
@@ -49,38 +60,40 @@
             xhr.send(file);
         }
 
+        // function to rewrite long file names as max 8+extension
+        function shortenFileName(fileName) {
+            var extension = fileName.split('.').pop();
+            var fileName = fileName.split('.').slice(0, -1).join('.');
+            if (fileName.length > 8) {
+                fileName = fileName.substring(0, 8) + '...';
+            }
+            return fileName + '.' + extension;
+        }
+
         function handleDrop(event) {
             event.preventDefault();
             event.stopPropagation();
-
             var files = event.dataTransfer.files;
             for (var i = 0; i < files.length; i++) {
                 var file = files[i];
                 handleFileUpload(file);
             }
-            var dropbox = document.getElementById("dropbox");
             dropbox.classList.remove("highlight");
         }
 
         function handleDragOver(event) {
             event.preventDefault();
             event.stopPropagation();
-
-            var dropbox = document.getElementById("dropbox");
             dropbox.classList.add("highlight");
         }
 
         function handleDragLeave(event) {
             event.preventDefault();
             event.stopPropagation();
-
-            var dropbox = document.getElementById("dropbox");
             dropbox.classList.remove("highlight");
         }
 
         document.addEventListener("DOMContentLoaded", function () {
-            var dropbox = document.getElementById("dropbox");
-
             dropbox.addEventListener("dragover", handleDragOver);
             dropbox.addEventListener("dragleave", handleDragLeave);
             dropbox.addEventListener("drop", handleDrop);
