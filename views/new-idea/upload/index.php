@@ -55,4 +55,4 @@ $mime_type = mime_content_type($final_resting_place) or die(json_encode(['messag
 $session->sql->query("INSERT INTO `attachments` (`attachment_id`, `user_id`, `file_name`, `file_type`, `file_path`) VALUES  ('$original_file_sha256', '{$session->user_id}', '$original_file_name', '$mime_type', '$final_resting_place')") or die(json_encode(['message' => 'Failed to insert into DB']));
 // File inserted into DB successfully
 // return the attachment ID
-echo json_encode(['message' => 'File uploaded successfully', 'attachment_id' => $original_file_sha256, 'file_name' => $original_file_name, 'file_type' => $mime_type, 'file_path' => $final_resting_place, 'file_size' => $final_file_size, 'file_hash' => $final_file_sha256, 'file_extension' => $original_file_extension, 'thumb_path' => $thumb_file_name, 'thumb_size' => filesize($thumb_file_name), 'thumb_hash' => hash_file('sha256', $thumb_file_name)]);
+echo json_encode(['message' => 'File uploaded successfully', 'attachment_id' => $original_file_sha256]);
