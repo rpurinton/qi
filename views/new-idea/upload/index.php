@@ -16,10 +16,10 @@ $random_file_name = $target_dir . bin2hex(random_bytes(16)) . '.' . $original_fi
 file_put_contents($random_file_name, file_get_contents('php://input')) or die(json_encode(['message' => 'Failed to save original file']));
 $original_file_size = filesize($random_file_name) or die(json_encode(['message' => 'Failed to get original file size']));
 $original_file_sha256 = hash_file('sha256', $random_file_name) or die(json_encode(['message' => 'Failed to hash original file']));
-$file_hash_prefix1 = substr($original_file_sha256, 0, 2);
-$file_hash_suffix2 = substr($original_file_sha256, 2, 2);
+$file_hash_prefix1 = substr($original_file_sha256, 0, 2) or die(json_encode(['message' => 'Failed to get file hash prefix']));
+$file_hash_suffix2 = substr($original_file_sha256, 2, 2) or die(json_encode(['message' => 'Failed to get file hash suffix']));
 $resting_place = __DIR__ . "/uploads/$file_hash_prefix1/$file_hash_suffix2/";
-if (!file_exists($resting_place)) mkdir($resting_place, 0777, true);
+if (!file_exists($resting_place)) mkdir($resting_place, 0777, true) or die(json_encode(['message' => 'Failed to create resting place']));
 $final_resting_place = $resting_place . $original_file_sha256 . '.' . $original_file_extension;
 file_exists($final_resting_place) or rename($random_file_name, $final_resting_place) or die(json_encode(['message' => 'Failed to move original file to resting place']));
 $final_file_size = filesize($final_resting_place) or die(json_encode(['message' => 'Failed to get final file size']));
