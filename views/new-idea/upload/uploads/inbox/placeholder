@@ -1,1 +1,5 @@
 This is to hold the file structure in the repo but otherwise the uploads directory is ignored in .gitignore
+
+This is only a test for the github webhook system.  I'm hoping it will result in Oliver the sysadmin writing a discord message to the #dev channel with the commit comparison URL.
+Puppeteer should pick up that URL along with the instructions given by Oliver and reply to oliver with a detailed report of the changes made to the site.
+Oliver will then reply back to puppeteer with whatever his response is to the report. If Oliver's response contains more URLs then puppeteer will repeat the process.
