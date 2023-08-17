@@ -39,6 +39,12 @@ $session->header("Idea Submission");
 
     #license-dropdown {
         border: 1px solid #000;
+        border-radius: 10px;
+    }
+
+    #license-dropdown:hover {
+        border: 1px solid #36f;
+        border-radius: 10px;
     }
 
     .form-select {
