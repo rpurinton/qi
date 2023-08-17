@@ -111,6 +111,7 @@
             var card = document.createElement("div");
             card.classList.add("card");
             var cardHeader = document.createElement("div");
+            cardHeader.position = "relative";
             cardHeader.classList.add("card-header");
             thumbnail = document.createElement("img");
             thumbnail.classList.add("thumbnail");
@@ -118,12 +119,10 @@
             cardHeader.appendChild(thumbnail);
             // create a small delete button using mdi icon in the top right corner of header
             var deleteButton = document.createElement("button");
-            deleteButton.classList.add("btn");
-            deleteButton.classList.add("btn-sm");
-            deleteButton.classList.add("btn-outline-danger");
-            deleteButton.classList.add("mdi");
-            deleteButton.classList.add("mdi-close");
-            deleteButton.style = "position: relative; top: 0; right: 0;";
+            deleteButton.classList.add("btn", "btn-sm", "btn-outline-danger", "mdi", "mdi-close");
+            deleteButton.style.position = "absolute";
+            deleteButton.style.top = "0";
+            deleteButton.style.right = "0";
             deleteButton.addEventListener("click", function () {
                 // remove functions
                 if ($attachment_id) {
