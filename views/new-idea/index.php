@@ -133,7 +133,7 @@ $session->header("Idea Submission");
         </select>
     </div>
     <!-- make description text area fill the remaining space, take focus by default, and support multiline text entry with word wrapping and scrolling.  it should never grow beyond it's original size. -->
-    <textarea id="description" name="description" rows="20" style="resize: vertical;" class="form-control control-group description" autofocus placeholder="Enter your idea here... Markdown support enabled!" required inputmode="text" x-webkit-speech></textarea>
+    <textarea id="description" name="description" rows="20" style="resize: none;" class="form-control control-group description" autofocus placeholder="Enter your idea here... Markdown support enabled!" required inputmode="text" x-webkit-speech></textarea>
     <button id="voicetyping" onclick="focusTextarea()"><i class="mdi mdi-microphone"></i></button>
     <div id="attachments" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
         <!-- Thumbnails of attachments will be dynamically generated here -->
