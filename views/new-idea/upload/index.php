@@ -44,6 +44,6 @@ $session->sql->query("INSERT INTO `attachments` (`sha256`,`user_id`, `file_name`
 $message = [
     "message" => "File uploaded successfully",
     "attachment_id" => $original_file_sha256,
-    "thumbnail" => $thumb_file_url ?? null,
+    "thumbnail" => $thumbnail_url ?? 0,
 ];
 echo json_encode($message);
