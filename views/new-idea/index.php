@@ -144,7 +144,7 @@ $session->header("Idea Submission");
     <input type="file" id="fileInput" multiple style="display: none">
     <!-- Give hint to drag files to the text area to upload new attachments -->
     <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-        <label id="attachments-label" for="attachments"><i class="mdi mdi-arrow-up-bold-circle-outline" style='vertical-align:middle;'></i> Drag files here to upload attachments <i class='mdi mdi-arrow-up-bold-circle-outline' style='vertical-align: middle;'></i></label>
+        <label id="attachments-label" for="attachments"><i class="mdi mdi-arrow-up-bold-circle-outline" style='vertical-align:middle;'></i> Upload File(s) <i class='mdi mdi-arrow-up-bold-circle-outline' style='vertical-align: middle;'></i></label>
     </div>
     <!-- Button to submit the form with the I agree to TOS above the button -->
     <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
