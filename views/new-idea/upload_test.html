@@ -30,6 +30,8 @@
             justify-content: start;
             align-items: center;
             flex-wrap: nowrap;
+            border: 1px solid #36f;
+            border-radius: 6px;
         }
 
         .card-header {
@@ -64,6 +66,7 @@
             flex-wrap: nowrap;
             padding: 5px;
             font-size: 90%;
+            border-top: 1px dotted #777;
         }
 
         .thumbnail {
@@ -78,16 +81,15 @@
 
         .success {
             border: 2px solid green !important;
-            border-radius: 6px;
         }
 
         .danger {
             border: 2px solid red !important;
-            border-radius: 6px;
         }
 
         progress {
             height: 8px;
+            border-radius: 6px;
         }
     </style>
 
@@ -142,6 +144,7 @@
                     if (response.message === "File uploaded successfully") {
                         progressBar.value = 100;
                         progressBar.classList.add("success");
+                        card.classList.add("success");
                         var attachment_id = response.attachment_id;
                         attachments.push(attachment_id);
                         var thumbnailURL = response.thumbnailURL;
@@ -149,6 +152,7 @@
                     } else {
                         var errorMessage = response.message;
                         progressBar.classList.add("danger");
+                        card.classList.add("danger");
                         setTimeout(function () {
                             alert(errorMessage);
                             card.remove();
