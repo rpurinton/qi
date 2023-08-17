@@ -7,7 +7,7 @@ $session = new Session(false);
 // if we reach this point we know the user is logged in and validated
 
 // get the original file name from the request URI
-$original_file_name = explode('/', $_SERVER['REQUEST_URI'])[2];
+$original_file_name = explode('/', $_SERVER['REQUEST_URI'])[3];
 $original_file_extension = substr($original_file_name, strrpos($original_file_name, '.') + 1);
 
 // set the base directory path
