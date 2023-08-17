@@ -80,7 +80,7 @@
             border-radius: 6px;
         }
 
-        .error {
+        .danger {
             border: 2px solid red !important;
             border-radius: 6px;
         }
@@ -147,11 +147,11 @@
                         // Display the thumbnailURL in the UI
                     } else {
                         var errorMessage = response.message;
-                        progressBar.classList.add("error");
+                        progressBar.classList.add("danger");
                         setTimeout(function () {
                             alert(errorMessage);
                             card.remove();
-                        }, 1);
+                        }, 100);
                     }
                 }
             };
