@@ -2,11 +2,14 @@
 
 namespace Rpurinton\qi;
 
+use Ratchet\Http\OriginCheck;
+
 header('Content-Type: application/json');
 
 require_once(__DIR__ . '/../../src/Session.php');
 $session = new Session(false);
-$original_file_name = explode('/', $_SERVER['REQUEST_URI'])[3];
+$original_file_name = urldecode(explode('/', $_SERVER['REQUEST_URI'])[3]);
+if (!$original_file_name || $original_file_name == '') die(json_encode(['message' => 'No file name provided']));
 $original_file_extension = substr($original_file_name, strrpos($original_file_name, '.') + 1);
 $target_dir = __DIR__ . "/uploads/inbox/";
 $random_file_name = $target_dir . bin2hex(random_bytes(16)) . '.' . $original_file_extension;
