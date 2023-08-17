@@ -391,7 +391,7 @@
     .search {
       input {
         background: $card-bg;
-        padding: 13px 20px 11px 20px;
+        padding: 13px 10px 11px 10px;
         border: 1px solid #2c2e33;
 
         &::placeholder {
@@ -400,7 +400,7 @@
         }
 
         &:focus {
-          border: 1px solid rgba(51,102,255,0.5);
+          border: 1px solid rgba(51, 102, 255, 0.5);
           background-color: $input-bg;
           color: #ffffff;
         }
