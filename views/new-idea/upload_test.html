@@ -129,163 +129,161 @@
     <div id="dropbox"></div>
 
     <script>
-        var dropbox;
-        var attachments = [];
+        $dropbox = null;
+        $attachments = [];
 
-        function handleFileUpload(file) {
+        function handleFileUpload($file) {
             // create a new div element
-            var attachment_id = 0;
-            var dropbox = document.getElementById("dropbox");
-            var card = document.createElement("div");
-            card.classList.add("card");
-            var cardHeader = document.createElement("div");
-            cardHeader.classList.add("card-header");
-            thumbnail = document.createElement("img");
-            thumbnail.classList.add("thumbnail");
-            thumbnail.src = "/assets/images/file-icons/128/002-tool.png";
-            cardHeader.appendChild(thumbnail);
-            // create a small delete button using mdi icon in the top right corner of header
-            var deleteButton = document.createElement("button");
-            deleteButton.classList.add("btn", "btn-sm", "delete-button");
-            deleteButton.innerHTML = '<i class="mdi mdi-close"></i>';
-            deleteButton.addEventListener("click", function () {
+            $attachment_id = 0;
+            $dropbox = document.getElementById("dropbox");
+            $card = document.createElement("div");
+            $card.classList.add("card");
+            $cardHeader = document.createElement("div");
+            $cardHeader.classList.add("card-header");
+            $thumbnail = document.createElement("img");
+            $thumbnail.classList.add("thumbnail");
+            $thumbnail.src = "/assets/images/file-icons/128/002-tool.png";
+            $cardHeader.appendChild($thumbnail);
+            $deleteButton = document.createElement("button");
+            $deleteButton.classList.add("btn", "btn-sm", "delete-button");
+            $deleteButton.innerHTML = 'X';
+            $deleteButton.addEventListener("click", function () {
                 // remove functions
                 if ($attachment_id) {
                     // remove from attachments
-                    var index = attachments.indexOf($attachment_id);
-                    if (index > -1) {
-                        attachments.splice(index, 1);
+                    $index = $attachments.indexOf($attachment_id);
+                    if ($index > -1) {
+                        $attachments.splice($index, 1);
                     }
 
                     // remove from database
-                    var xhr = new XMLHttpRequest();
-                    xhr.open("POST", "/new-idea/remove-attachment/" + $attachment_id, true);
-                    xhr.onload = function () {
-                        if (xhr.status === 200) {
-                            var response = JSON.parse(xhr.responseText);
-                            if (response.message === "Attachment removed successfully") {
-                                var index = attachments.indexOf(attachment_id);
-                                if (index > -1) {
-                                    attachments.splice(index, 1);
+                    $xhr = new XMLHttpRequest();
+                    $xhr.open("POST", "/new-idea/upload/remove/" + $attachment_id, true);
+                    $xhr.onload = function () {
+                        if ($xhr.status === 200) {
+                            $response = JSON.parse($xhr.responseText);
+                            if ($response.message === "Attachment removed successfully") {
+                                $index = $attachments.indexOf($attachment_id);
+                                if ($index > -1) {
+                                    $attachments.splice($index, 1);
                                 }
                             } else {
-                                var errorMessage = response.message;
-                                alert(errorMessage);
+                                $errorMessage = $response.message;
+                                alert($errorMessage);
                             }
                         }
                     };
-                    xhr.onerror = function () {
+                    $xhr.onerror = function () {
                         alert("Error! Can not connect to server.");
                     };
-                    xhr.send();
+                    $xhr.send();
                 }
-                card.remove();
+                $card.remove();
             });
-            cardHeader.appendChild(deleteButton);
-            card.appendChild(cardHeader);
-            cardBody = document.createElement("div");
-            cardBody.classList.add("card-body");
-            var progressBar = document.createElement("progress");
-            progressBar.id = file.name + "-progress";
-            progressBar.value = 0;
-            progressBar.max = 100;
-            cardBody.appendChild(progressBar);
-            card.appendChild(cardBody);
-            cardFooter = document.createElement("div");
-            cardFooter.classList.add("card-footer");
-            cardFooter.innerHTML = shortenFileName(file.name);
-            card.appendChild(cardFooter);
-            dropbox.appendChild(card);
+            $cardHeader.appendChild($deleteButton);
+            $card.appendChild($cardHeader);
+            $cardBody = document.createElement("div");
+            $cardBody.classList.add("card-body");
+            $progressBar = document.createElement("progress");
+            $progressBar.id = $file.name + "-progress";
+            $progressBar.value = 0;
+            $progressBar.max = 100;
+            $cardBody.appendChild($progressBar);
+            $card.appendChild($cardBody);
+            $cardFooter = document.createElement("div");
+            $cardFooter.classList.add("card-footer");
+            $cardFooter.innerHTML = shortenFileName($file.name);
+            $card.appendChild($cardFooter);
+            $dropbox.appendChild($card);
 
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "/new-idea/upload/" + file.name, true);
+            $xhr = new XMLHttpRequest();
+            $xhr.open("POST", "/new-idea/upload/" + $file.name, true);
 
-            xhr.upload.onprogress = function (e) {
-                var percentCompleted = Math.round((e.loaded / e.total) * 100);
-                progressBar.value = percentCompleted;
+            $xhr.upload.onprogress = function ($e) {
+                $percentCompleted = Math.round(($e.loaded / $e.total) * 100);
+                $progressBar.value = $percentCompleted;
             };
 
-            xhr.onload = function () {
-                if (xhr.status === 200) {
-                    var response = JSON.parse(xhr.responseText);
-                    if (response.message === "File uploaded successfully") {
-                        progressBar.value = 100;
-                        progressBar.classList.add("success");
-                        card.classList.add("success");
-                        attachment_id = response.attachment_id;
-                        attachments.push(attachment_id);
-                        var thumbnail_url = response.thumbnail;
-                        if (thumbnail_url) thumbnail.src = thumbnail_url;
+            $xhr.onload = function () {
+                if ($xhr.status === 200) {
+                    $response = JSON.parse($xhr.responseText);
+                    if ($response.message === "File uploaded successfully") {
+                        $progressBar.value = 100;
+                        $progressBar.classList.add("success");
+                        $card.classList.add("success");
+                        $attachment_id = $response.attachment_id;
+                        $attachments.push($attachment_id);
+                        $thumbnail_url = $response.thumbnail;
+                        if (t$humbnail_url) $thumbnail.src = $thumbnail_url;
                     } else {
-                        var errorMessage = response.message;
-                        progressBar.classList.add("danger");
-                        card.classList.add("danger");
+                        $errorMessage = $response.message;
+                        $progressBar.classList.add("danger");
+                        $card.classList.add("danger");
                         setTimeout(function () {
-                            alert(errorMessage);
-                            card.remove();
+                            alert($errorMessage);
+                            $card.remove();
                         }, 100);
                     }
                 }
             };
 
-            xhr.onerror = function () {
+            $xhr.onerror = function () {
                 alert("Error! Upload failed. Can not connect to server.");
             };
 
-            xhr.send(file);
+            $xhr.send(file);
         }
 
-        function shortenFileName(fileName) {
-            var extension = fileName.split('.').pop();
-            var fileName = fileName.split('.').slice(0, -1).join('.');
-            if (fileName.length > 8) {
-                fileName = fileName.substring(0, 8) + '...';
+        function shortenFileName($fileName) {
+            $extension = $fileName.split('.').pop();
+            $fileName = $fileName.split('.').slice(0, -1).join('.');
+            if ($fileName.length > 8) {
+                $fileName = $fileName.substring(0, 8) + '...';
             }
-            return fileName + '.' + extension;
+            return $fileName + '.' + $extension;
         }
 
-        function handleDrop(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            var files = event.dataTransfer.files;
-            // check that no file is more than 32MB if so return an error message
-            var oversied = false;
-            for (var i = 0; i < files.length; i++) {
-                var file = files[i];
-                if (file.size > 32 * 1024 * 1024) {
-                    oversied = true;
+        function handleDrop($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+            $files = $event.dataTransfer.files;
+            $oversized = false;
+            for ($i = 0; $i < $files.length; $i++) {
+                $file = $files[i];
+                if ($file.size > 32 * 1024 * 1024) {
+                    $oversized = true;
                     break;
                 }
             }
-            if (oversied) {
-                alert("Please upload files that are less than 32MB.");
-                dropbox.classList.remove("highlight");
+            if ($oversied) {
+                alert("No one file can exceed 32MB.");
+                $dropbox.classList.remove("highlight");
                 return;
             }
-            for (var i = 0; i < files.length; i++) {
-                var file = files[i];
-                handleFileUpload(file);
+            for ($i = 0; $i < $files.length; $i++) {
+                $file = $files[i];
+                handleFileUpload($file);
             }
-            dropbox.classList.remove("highlight");
+            $dropbox.classList.remove("highlight");
         }
 
-        function handleDragOver(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            dropbox.classList.add("highlight");
+        function handleDragOver($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+            $dropbox.classList.add("highlight");
         }
 
-        function handleDragLeave(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            dropbox.classList.remove("highlight");
+        function handleDragLeave($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+            $dropbox.classList.remove("highlight");
         }
 
         document.addEventListener("DOMContentLoaded", function () {
-            dropbox = document.getElementById("dropbox");
-            dropbox.addEventListener("dragover", handleDragOver);
-            dropbox.addEventListener("dragleave", handleDragLeave);
-            dropbox.addEventListener("drop", handleDrop);
+            $dropbox = document.getElementById("dropbox");
+            $dropbox.addEventListener("dragover", handleDragOver);
+            $dropbox.addEventListener("dragleave", handleDragLeave);
+            $dropbox.addEventListener("drop", handleDrop);
         });
     </script>
 </body>
