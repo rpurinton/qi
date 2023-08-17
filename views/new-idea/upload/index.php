@@ -21,7 +21,7 @@ $file_hash_suffix2 = substr($original_file_sha256, 2, 2);
 $resting_place = __DIR__ . "/uploads/$file_hash_prefix1/$file_hash_suffix2/";
 if (!file_exists($resting_place)) mkdir($resting_place, 0777, true);
 $final_resting_place = $resting_place . $original_file_sha256 . '.' . $original_file_extension;
-rename($random_file_name, $final_resting_place) or die(json_encode(['message' => 'Failed to move original file to resting place']));
+file_exists($final_resting_place) or rename($random_file_name, $final_resting_place) or die(json_encode(['message' => 'Failed to move original file to resting place']));
 $final_file_size = filesize($final_resting_place) or die(json_encode(['message' => 'Failed to get final file size']));
 $final_file_size == $original_file_size or die(json_encode(['message' => 'Final file size does not match original file size']));
 $final_file_sha256 = hash_file('sha256', $final_resting_place) or die(json_encode(['message' => 'Failed to hash final file']));
