@@ -172,6 +172,8 @@ $session->header("Idea Submission");
         for (const file of fileInput.files) {
             upload(file);
         }
+        // remove all files
+        fileInput.value = "";
     });
 
 
