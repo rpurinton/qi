@@ -148,8 +148,10 @@
                     } else {
                         var errorMessage = response.message;
                         progressBar.classList.add("error");
-                        alert(errorMessage);
-                        card.remove();
+                        setTimeout(function () {
+                            alert(errorMessage);
+                            card.remove();
+                        }, 1);
                     }
                 }
             };
