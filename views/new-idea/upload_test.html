@@ -94,6 +94,7 @@
         }
 
         document.addEventListener("DOMContentLoaded", function () {
+            dropbox = document.getElementById("dropbox");
             dropbox.addEventListener("dragover", handleDragOver);
             dropbox.addEventListener("dragleave", handleDragLeave);
             dropbox.addEventListener("drop", handleDrop);
