@@ -147,8 +147,8 @@
                         card.classList.add("success");
                         var attachment_id = response.attachment_id;
                         attachments.push(attachment_id);
-                        var thumbnailURL = response.thumbnailURL;
-                        // Display the thumbnailURL in the UI
+                        var thumbnail_url = response.thumbnail;
+                        if (thumbnail_url) thumbnail.src = thumbnail_url;
                     } else {
                         var errorMessage = response.message;
                         progressBar.classList.add("danger");
