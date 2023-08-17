@@ -130,48 +130,45 @@
     <div id="dropbox"></div>
 
     <script>
-        $dropbox = null;
-        $attachments = [];
+        var $dropbox = null;
+        var $attachments = [];
 
         function handleFileUpload($file) {
             // create a new div element
-            $attachment_id = 0;
+            var $attachment_id = 0;
             $dropbox = document.getElementById("dropbox");
-            $card = document.createElement("div");
+            var $card = document.createElement("div");
             $card.classList.add("card");
-            $cardHeader = document.createElement("div");
+            var $cardHeader = document.createElement("div");
             $cardHeader.classList.add("card-header");
-            $thumbnail = document.createElement("img");
+            var $thumbnail = document.createElement("img");
             $thumbnail.classList.add("thumbnail");
             $thumbnail.src = "/assets/images/file-icons/128/002-tool.png";
             $cardHeader.appendChild($thumbnail);
-            $deleteButton = document.createElement("button");
+            var $deleteButton = document.createElement("button");
             $deleteButton.classList.add("btn", "btn-sm", "delete-button");
             $deleteButton.innerHTML = 'X';
             $deleteButton.addEventListener("click", function () {
                 // remove functions
                 if ($attachment_id) {
                     // remove from attachments
-                    $index = $attachments.indexOf($attachment_id);
+                    var $index = $attachments.indexOf($attachment_id);
                     if ($index > -1) {
                         $attachments.splice($index, 1);
                     }
 
                     // remove from database
-                    $xhr = new XMLHttpRequest();
+                    var $xhr = new XMLHttpRequest();
                     $xhr.open("POST", "/new-idea/upload/remove/" + $attachment_id, true);
                     $xhr.onload = function () {
                         if ($xhr.status === 200) {
-                            $response = JSON.parse($xhr.responseText);
+                            var $response = JSON.parse($xhr.responseText);
                             if ($response.message === "Attachment removed successfully") {
-                                $index = $attachments.indexOf($attachment_id);
+                                var $index = $attachments.indexOf($attachment_id);
                                 if ($index > -1) {
                                     $attachments.splice($index, 1);
                                 }
-                            } else {
-                                $errorMessage = $response.message;
-                                alert($errorMessage);
-                            }
+                            } else alert($response.message);
                         }
                     };
                     $xhr.onerror = function () {
@@ -183,26 +180,25 @@
             });
             $cardHeader.appendChild($deleteButton);
             $card.appendChild($cardHeader);
-            $cardBody = document.createElement("div");
+            var $cardBody = document.createElement("div");
             $cardBody.classList.add("card-body");
-            $progressBar = document.createElement("progress");
+            var $progressBar = document.createElement("progress");
             $progressBar.id = $file.name + "-progress";
             $progressBar.value = 0;
             $progressBar.max = 100;
             $cardBody.appendChild($progressBar);
             $card.appendChild($cardBody);
-            $cardFooter = document.createElement("div");
+            var $cardFooter = document.createElement("div");
             $cardFooter.classList.add("card-footer");
             $cardFooter.innerHTML = shortenFileName($file.name);
             $card.appendChild($cardFooter);
             $dropbox.appendChild($card);
 
-            $xhr = new XMLHttpRequest();
+            var $xhr = new XMLHttpRequest();
             $xhr.open("POST", "/new-idea/upload/" + $file.name, true);
 
             $xhr.upload.onprogress = function ($e) {
-                $percentCompleted = Math.round(($e.loaded / $e.total) * 100);
-                $progressBar.value = $percentCompleted;
+                $progressBar.value = Math.round(($e.loaded / $e.total) * 100);;
             };
 
             $xhr.onload = function () {
@@ -236,8 +232,8 @@
         }
 
         function shortenFileName($fileName) {
-            $extension = $fileName.split('.').pop();
-            $fileName = $fileName.split('.').slice(0, -1).join('.');
+            var $extension = $fileName.split('.').pop();
+            var $fileName = $fileName.split('.').slice(0, -1).join('.');
             if ($fileName.length > 8) {
                 $fileName = $fileName.substring(0, 8) + '...';
             }
@@ -248,7 +244,7 @@
             $event.preventDefault();
             $event.stopPropagation();
             $files = $event.dataTransfer.files;
-            $oversized = false;
+            var $oversized = false;
             for ($i = 0; $i < $files.length; $i++) {
                 if ($files[$i].size > 32 * 1024 * 1024) {
                     $oversized = true;
@@ -260,7 +256,7 @@
                 $dropbox.classList.remove("highlight");
                 return;
             }
-            for ($i = 0; $i < $files.length; $i++) handleFileUpload($files[$i]);
+            for (var $i = 0; $i < $files.length; $i++) handleFileUpload($files[$i]);
             $dropbox.classList.remove("highlight");
         }
 
