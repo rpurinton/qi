@@ -13,7 +13,7 @@
             padding: 10px;
             margin: 20px auto;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             justify-content: start;
             align-items: start;
             flex-wrap: nowrap;
@@ -21,7 +21,59 @@
             overflow-x: auto;
         }
 
+        #dropbox p {
+            font-size: 1.2em;
+            margin: 50px auto;
+        }
+
+        .card {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+
+        .card-header {
+            width: 100%;
+            height: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+
+        .card-body {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+
+        .card-footer {
+            width: 100%;
+            height: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+
+        .thumbnail {
+            width: 100%;
+            height: 100%;
+        }
+
         #dropbox.highlight {
+            border-color: #36f;
             background-color: #e8f9ff;
         }
 
