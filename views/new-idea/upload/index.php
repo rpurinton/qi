@@ -41,9 +41,10 @@ if (in_array(strtolower($original_file_extension), ['jpg', 'jpeg', 'png', 'gif',
 }
 $mime_type = mime_content_type($final_resting_place) or die(json_encode(['message' => 'Failed to get mime type']));
 $session->sql->query("INSERT INTO `attachments` (`sha256`,`user_id`, `file_name`, `file_type`, `file_path`,`file_size`,`has_thumb`) VALUES  ('$original_file_sha256', '{$session->user_id}', '$original_file_name', '$mime_type', '$final_resting_place', '$final_file_size','$has_thumb');") or die(json_encode(['message' => 'Failed to insert into DB']));
+$attachment_id = $session->sql->insert_id();
 $message = [
     "message" => "File uploaded successfully",
-    "attachment_id" => $original_file_sha256,
+    "attachment_id" => $attachment_id,
     "thumbnail" => $thumbnail_url ?? 0,
 ];
 echo json_encode($message);
