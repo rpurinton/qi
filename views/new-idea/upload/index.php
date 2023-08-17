@@ -17,7 +17,7 @@ file_put_contents($random_file_name, file_get_contents('php://input')) or die(js
 $original_file_size = filesize($random_file_name) or die(json_encode(['message' => 'Failed to get original file size']));
 $original_file_sha256 = hash_file('sha256', $random_file_name) or die(json_encode(['message' => 'Failed to hash original file']));
 $file_hash_prefix1 = substr($original_file_sha256, 0, 2) or die(json_encode(['message' => 'Failed to get file hash prefix']));
-$file_hash_prefix2 = substr($original_file_sha256, 2, 2) or die(json_encode(['message' => 'Failed to get file hash suffix']));
+$file_hash_prefix2 = substr($original_file_sha256, 2, 2) or die(json_encode(['message' => 'Failed to get file hash prefix']));
 $resting_place = __DIR__ . "/uploads/$file_hash_prefix1/$file_hash_prefix2/";
 if (!file_exists($resting_place)) mkdir($resting_place, 0777, true) or die(json_encode(['message' => 'Failed to create resting place']));
 $final_resting_place = $resting_place . $original_file_sha256 . '.' . $original_file_extension;
