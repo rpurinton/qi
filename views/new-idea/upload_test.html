@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>File Upload Test</title>
+    <style>
+        #dropbox {
+            width: 300px;
+            height: 200px;
+            border: 2px dashed #ccc;
+            text-align: center;
+            padding: 10px;
+            margin: 20px auto;
+        }
+
+        #dropbox.highlight {
+            background-color: #e8f9ff;
+        }
+    </style>
+    <script>
+        function handleFileUpload(file) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/views/new-idea/upload/" + file.name, true);
+
+            xhr.upload.onprogress = function (e) {
+                var percentCompleted = Math.round((e.loaded / e.total) * 100);
+                var progressBar = document.getElementById(file.name + "-progress");
+                progressBar.value = percentCompleted;
+            };
+
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    if (response.message === "success") {
+                        var thumbnailURL = response.thumbnailURL;
+                        // Display the thumbnailURL in the UI
+                    } else {
+                        var errorMessage = response.message;
+                        // Display the error message in the UI
+                    }
+                }
+            };
+
+            xhr.onerror = function () {
+                // Handle any errors that occur during the upload
+            };
+
+            xhr.send(file);
+        }
+
+        function handleDrop(event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            var files = event.dataTransfer.files;
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                handleFileUpload(file);
+            }
+            var dropbox = document.getElementById("dropbox");
+            dropbox.classList.remove("highlight");
+        }
+
+        function handleDragOver(event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            var dropbox = document.getElementById("dropbox");
+            dropbox.classList.add("highlight");
+        }
+
+        function handleDragLeave(event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            var dropbox = document.getElementById("dropbox");
+            dropbox.classList.remove("highlight");
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var dropbox = document.getElementById("dropbox");
+
+            dropbox.addEventListener("dragover", handleDragOver);
+            dropbox.addEventListener("dragleave", handleDragLeave);
+            dropbox.addEventListener("drop", handleDrop);
+        });
+    </script>
+</head>
+
+<body>
+    <h1>File Upload Test</h1>
+
+    <div id="dropbox">
+        <p>Drag and drop files here</p>
+    </div>
+
+</body>
+
+</html>
