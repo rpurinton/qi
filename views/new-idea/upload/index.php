@@ -47,6 +47,8 @@ if (in_array(strtolower($original_file_extension), ['jpg', 'jpeg', 'png', 'gif',
     if (!file_exists($thumbs_dir)) mkdir($thumbs_dir, 0777, true);
     $thumb_file_name = $thumbs_dir . $original_file_sha256 . '.jpg';
     exec("convert $final_resting_place -thumbnail 256x256 $thumb_file_name") or die(json_encode(['message' => 'Failed to create thumbnail']));
+    // verify that the thumbnail was created
+    file_exists($thumb_file_name) or die(json_encode(['message' => 'Thumbnail not created']));
     // Thumbnail created successfully
 }
 // get the file mime type
