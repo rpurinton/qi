@@ -52,7 +52,7 @@ if (in_array(strtolower($original_file_extension), ['jpg', 'jpeg', 'png', 'gif',
 // get the file mime type
 $mime_type = mime_content_type($final_resting_place) or die(json_encode(['message' => 'Failed to get mime type']));
 // insert in DB
-$session->sql->query("INSERT INTO `attachments` (`attachment_id`, `user_id`, `file_name`, `file_type`, `file_path`) VALUES  ('$original_file_sha256', '{$session->user_id}', '$original_file_name', '$mime_type', '$final_resting_place')") or die(json_encode(['message' => 'Failed to insert into DB']));
+$session->sql->query("INSERT INTO `attachments` (`attachment_id`, `user_id`, `file_name`, `file_type`, `file_path`) VALUES  ('$original_file_sha256', '{$session->user_id}', '$original_file_name', '$mime_type', '$final_resting_place') ON DUPLICATE KEY UPDATE `attachment_id` = `attachment_id`") or die(json_encode(['message' => 'Failed to insert into DB']));
 // File inserted into DB successfully
 // return the attachment ID
 echo json_encode(['message' => 'File uploaded successfully', 'attachment_id' => $original_file_sha256]);
