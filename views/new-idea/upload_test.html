@@ -94,6 +94,7 @@
 
     <script>
         var dropbox;
+        var attachments = [];
 
         function handleFileUpload(file) {
             // create a new div element
@@ -133,15 +134,17 @@
                 if (xhr.status === 200) {
                     var response = JSON.parse(xhr.responseText);
                     if (response.message === "File uploaded successfully") {
-                        progressBar.classList.add("success");
-                        // update the progress bar to 100%
                         progressBar.value = 100;
+                        progressBar.classList.add("success");
+                        var attachment_id = response.attachment_id;
+                        attachments.push(attachment_id);
                         var thumbnailURL = response.thumbnailURL;
                         // Display the thumbnailURL in the UI
                     } else {
                         var errorMessage = response.message;
-                        // Display the error message in the UI
+                        progressBar.classList.add("error");
                         alert(errorMessage);
+                        card.remove();
                     }
                 }
             };
@@ -153,7 +156,6 @@
             xhr.send(file);
         }
 
-        // function to rewrite long file names as max 8+extension
         function shortenFileName(fileName) {
             var extension = fileName.split('.').pop();
             var fileName = fileName.split('.').slice(0, -1).join('.');
