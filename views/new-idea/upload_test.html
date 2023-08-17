@@ -19,7 +19,7 @@
         }
     </style>
     <script>
-        var dropbox = document.getElementById("dropbox");
+        var dropbox;
 
         function handleFileUpload(file) {
             // create an element in the dropbox for the file with a pie chart progress bar at 0% and a shortened file name below it put an id on the progress bar so we can update it later
@@ -30,7 +30,7 @@
             dropbox.appendChild(progressBar);
             var fileName = document.createElement("p");
             fileName.innerHTML = shortenFileName(file.name);
-            progressBar.appendChild(fileName);
+            dropbox.appendChild(fileName);
 
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "/new-idea/upload/" + file.name, true);
