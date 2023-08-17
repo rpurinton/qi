@@ -27,8 +27,9 @@ if (in_array(strtolower($original_file_extension), ['jpg', 'jpeg', 'png', 'gif',
     $thumbs_dir = __DIR__ . "/uploads/thumbs/$file_hash_prefix1/$file_hash_suffix2/";
     if (!file_exists($thumbs_dir)) mkdir($thumbs_dir, 0777, true);
     $thumb_file_name = $thumbs_dir . $original_file_sha256 . '.jpg';
-    exec("convert $final_resting_place -thumbnail 256x256 $thumb_file_name") or die(json_encode(['message' => 'Failed to create thumbnail']));
+    exec("convert $final_resting_place -thumbnail 80x80 $thumb_file_name") or die(json_encode(['message' => 'Failed to create thumbnail']));
     file_exists($thumb_file_name) or die(json_encode(['message' => 'Thumbnail not created']));
+    $thumbnail_url = "/views/new-idea/upload/thumbs/$file_hash_prefix1/$file_hash_suffix2/$original_file_sha256.jpg";
 }
 $mime_type = mime_content_type($final_resting_place) or die(json_encode(['message' => 'Failed to get mime type']));
 $session->sql->query("INSERT INTO `attachments` (`sha256`,`user_id`, `file_name`, `file_type`, `file_path`) VALUES  ('$original_file_sha256', '{$session->user_id}', '$original_file_name', '$mime_type', '$final_resting_place');") or die(json_encode(['message' => 'Failed to insert into DB']));
