@@ -36,7 +36,7 @@
 
         .card-header {
             width: calc(100% - 10px);
-            height: 0px;
+            height: 54px;
             display: flex;
             flex-direction: row;
             justify-content: center;
@@ -47,7 +47,7 @@
 
         .card-body {
             width: calc(100% - 10px);
-            height: 54px;
+            height: 0px;
             display: flex;
             flex-direction: row;
             justify-content: center;
@@ -66,7 +66,6 @@
             flex-wrap: nowrap;
             padding: 5px;
             font-size: 80%;
-            border-top: 1px dotted #777;
             white-space: nowrap;
         }
 
@@ -107,29 +106,72 @@
 
         function handleFileUpload(file) {
             // create a new div element
+            var attachment_id = 0;
             var dropbox = document.getElementById("dropbox");
             var card = document.createElement("div");
             card.classList.add("card");
-            dropbox.appendChild(card);
             var cardHeader = document.createElement("div");
             cardHeader.classList.add("card-header");
-            card.appendChild(cardHeader);
-            cardBody = document.createElement("div");
-            cardBody.classList.add("card-body");
-            card.appendChild(cardBody);
             thumbnail = document.createElement("img");
             thumbnail.classList.add("thumbnail");
             thumbnail.src = "/assets/images/file-icons/128/002-tool.png";
-            cardBody.appendChild(thumbnail);
-            cardFooter = document.createElement("div");
-            cardFooter.classList.add("card-footer");
-            card.appendChild(cardFooter);
-            cardFooter.innerHTML = shortenFileName(file.name);
+            cardHeader.appendChild(thumbnail);
+            // create a small delete button using mdi icon in the top right corner of header
+            var deleteButton = document.createElement("button");
+            deleteButton.classList.add("btn");
+            deleteButton.classList.add("btn-sm");
+            deleteButton.classList.add("btn-outline-danger");
+            deleteButton.classList.add("mdi");
+            deleteButton.classList.add("mdi-close");
+            deleteButton.style = "position: absolute; top: 0; right: 0;";
+            deleteButton.addEventListener("click", function () {
+                // remove functions
+                if ($attachment_id) {
+                    // remove from attachments
+                    var index = attachments.indexOf($attachment_id);
+                    if (index > -1) {
+                        attachments.splice(index, 1);
+                    }
+
+                    // remove from database
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST", "/new-idea/remove-attachment/" + $attachment_id, true);
+                    xhr.onload = function () {
+                        if (xhr.status === 200) {
+                            var response = JSON.parse(xhr.responseText);
+                            if (response.message === "Attachment removed successfully") {
+                                // remove from attachments array
+                                var index = attachments.indexOf($attachment_id);
+                                if (index > -1) {
+                                    attachments.splice(index, 1);
+                                }
+                            } else {
+                                var errorMessage = response.message;
+                                alert(errorMessage);
+                            }
+                        }
+                    };
+                    xhr.onerror = function () {
+                        alert("Error! Can not connect to server.");
+                    };
+                    xhr.send();
+                }
+                card.remove();
+            });
+            card.appendChild(cardHeader);
+            cardBody = document.createElement("div");
+            cardBody.classList.add("card-body");
             var progressBar = document.createElement("progress");
             progressBar.id = file.name + "-progress";
             progressBar.value = 0;
             progressBar.max = 100;
-            cardHeader.appendChild(progressBar);
+            cardBody.appendChild(progressBar);
+            card.appendChild(cardBody);
+            cardFooter = document.createElement("div");
+            cardFooter.classList.add("card-footer");
+            cardFooter.innerHTML = shortenFileName(file.name);
+            card.appendChild(cardFooter);
+            dropbox.appendChild(card);
 
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "/new-idea/upload/" + file.name, true);
@@ -146,7 +188,7 @@
                         progressBar.value = 100;
                         progressBar.classList.add("success");
                         card.classList.add("success");
-                        var attachment_id = response.attachment_id;
+                        attachment_id = response.attachment_id;
                         attachments.push(attachment_id);
                         var thumbnail_url = response.thumbnail;
                         if (thumbnail_url) thumbnail.src = thumbnail_url;
