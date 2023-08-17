@@ -249,8 +249,7 @@
             $files = $event.dataTransfer.files;
             $oversized = false;
             for ($i = 0; $i < $files.length; $i++) {
-                $file = $files[i];
-                if ($file.size > 32 * 1024 * 1024) {
+                if ($files[$i].size > 32 * 1024 * 1024) {
                     $oversized = true;
                     break;
                 }
@@ -260,10 +259,7 @@
                 $dropbox.classList.remove("highlight");
                 return;
             }
-            for ($i = 0; $i < $files.length; $i++) {
-                $file = $files[i];
-                handleFileUpload($file);
-            }
+            for ($i = 0; $i < $files.length; $i++) handleFileUpload($files[$i]);
             $dropbox.classList.remove("highlight");
         }
 
