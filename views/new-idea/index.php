@@ -113,7 +113,7 @@ $session->header("Idea Submission");
     </div>
     <div class="col-auto" style='display: flex; visibility: hidden; align-items: center; justify-content: center;'>
         <!-- dropdown box listing top 10 common public licenses -->
-        <select id="license-dropdown" class="form-select form-control" aria-label="License" style='color:#f0f8ff; text-align: center;'>
+        <select id="license-dropdown" class="form-select form-control" aria-label="License" style='color:#f0f8ff; text-align: center; border: 1px solid black;'>
             <?php
             $result = $session->sql->query("SELECT * FROM `license_types`;");
             while ($row = $result->fetch_assoc()) {
