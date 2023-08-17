@@ -37,6 +37,10 @@ $session->header("Idea Submission");
         flex-wrap: nowrap;
     }
 
+    #license-dropdown {
+        border: 1px solid #000;
+    }
+
     .form-select {
         position: relative;
         top: 0;
@@ -54,7 +58,6 @@ $session->header("Idea Submission");
         font-weight: bold;
         text-align-last: center;
         line-height: 100%;
-        border: 1px solid #000;
     }
 
     .description {
@@ -114,7 +117,7 @@ $session->header("Idea Submission");
     </div>
     <div class="col-auto" style='display: flex; visibility: hidden; align-items: center; justify-content: center;'>
         <!-- dropdown box listing top 10 common public licenses -->
-        <select id="license-dropdown" class="form-select form-control" aria-label="License" style='color:#f0f8ff; text-align: center; border: 1px solid black;'>
+        <select id="license-dropdown" class="form-select form-control" aria-label="License" style='color:#f0f8ff; text-align: center;'>
             <?php
             $result = $session->sql->query("SELECT * FROM `license_types`;");
             while ($row = $result->fetch_assoc()) {
