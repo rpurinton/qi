@@ -128,9 +128,10 @@ $session->header("Idea Submission");
     <div id="attachments" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
         <!-- Thumbnails of attachments will be dynamically generated here -->
     </div>
+    <input type="file" id="fileInput" multiple style="display: none">
     <!-- Give hint to drag files to the text area to upload new attachments -->
     <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-        <label for="attachments"><i class="mdi mdi-arrow-up-bold-circle-outline" style='vertical-align:middle;'></i> Drag files here to upload attachments <i class='mdi mdi-arrow-up-bold-circle-outline' style='vertical-align: middle;'></i></label>
+        <label id="attachments-label" for="attachments"><i class="mdi mdi-arrow-up-bold-circle-outline" style='vertical-align:middle;'></i> Drag files here to upload attachments <i class='mdi mdi-arrow-up-bold-circle-outline' style='vertical-align: middle;'></i></label>
     </div>
     <!-- Button to submit the form with the I agree to TOS above the button -->
     <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
@@ -144,6 +145,26 @@ $session->header("Idea Submission");
 </div>
 
 <script>
+    const label = document.getElementById("attachments-label");
+    const fileInput = document.getElementById("fileInput");
+
+    label.addEventListener("click", () => {
+        fileInput.click();
+    });
+
+    function upload($file) {
+        console.log("uploading " + $file.name);
+    }
+
+    // when files have been selected in the fileInput, upload each file
+
+    fileInput.addEventListener("change", () => {
+        for (const file of fileInput.files) {
+            upload(file);
+        }
+    });
+
+
     function focusTextarea() {
         document.getElementById("description").focus();
     }
