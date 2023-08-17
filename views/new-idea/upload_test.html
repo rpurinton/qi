@@ -12,6 +12,13 @@
             text-align: center;
             padding: 10px;
             margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            flex-wrap: nowrap;
+            overflow-y: hidden;
+            overflow-x: auto;
         }
 
         #dropbox.highlight {
@@ -40,15 +47,30 @@
         var dropbox;
 
         function handleFileUpload(file) {
-            // if filesize is more than 32MB (32 * 1024 * 1024), display an error message
+            // create a new div element
+            var dropbox = document.getElementById("dropbox");
+            var card = document.createElement("div");
+            card.classList.add("card");
+            dropbox.appendChild(card);
+            var cardHeader = document.createElement("div");
+            cardHeader.classList.add("card-header");
+            card.appendChild(cardHeader);
+            cardBody = document.createElement("div");
+            cardBody.classList.add("card-body");
+            card.appendChild(cardBody);
+            thumbnail = document.createElement("img");
+            thumbnail.classList.add("thumbnail");
+            thumbnail.src = "/assets/images/file-icons/128/002-tool.png";
+            cardBody.appendChild(thumbnail);
+            cardFooter = document.createElement("div");
+            cardFooter.classList.add("card-footer");
+            card.appendChild(cardFooter);
+            cardFooter.innerHTML = shortenFileName(file.name);
             var progressBar = document.createElement("progress");
             progressBar.id = file.name + "-progress";
             progressBar.value = 0;
             progressBar.max = 100;
-            dropbox.appendChild(progressBar);
-            var fileName = document.createElement("p");
-            fileName.innerHTML = shortenFileName(file.name);
-            dropbox.appendChild(fileName);
+            cardHeader.appendChild(progressBar);
 
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "/new-idea/upload/" + file.name, true);
