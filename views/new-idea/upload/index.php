@@ -2,6 +2,9 @@
 
 namespace Rpurinton\qi;
 
+// set response type json
+header('Content-Type: application/json');
+
 require_once(__DIR__ . '/../../src/Session.php');
 $session = new Session(false);
 // if we reach this point we know the user is logged in and validated
