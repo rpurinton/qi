@@ -87,13 +87,13 @@ body {
 
 .discroller::-webkit-scrollbar-thumb {
   background: #060912;
-  border-radius: 10px;
+  border-radius: 6px;
 }
 
 .chat-container {
   max-width: 800px;
   margin: 5px auto;
-  border-radius: 10px;
+  border-radius: 6px;
   overflow: hidden;
   height: calc(100% - 10px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -120,7 +120,7 @@ body {
 
 .chat-body::-webkit-scrollbar-thumb {
   background: #12151b;
-  border-radius: 10px;
+  border-radius: 6px;
 }
 
 .message {
@@ -181,7 +181,7 @@ sup {
 .message-content {
   background-color: rgba(21, 25, 32, 0.75);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
+  border-radius: 6px;
   padding: 10px;
   font-size: 14px;
   max-width: calc(100%);
@@ -257,7 +257,7 @@ p br:before {
   background-color: rgba(25, 28, 36, 0.75);
   color: white;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 6px;
   margin-left: 5px;
   margin-right: 5px;
   padding-right: 70px;

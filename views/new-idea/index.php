@@ -39,17 +39,15 @@ $session->header("Idea Submission");
 
     #license-dropdown {
         border: 1px solid #000;
-        border-radius: 10px;
+        border-radius: 6px;
     }
 
     #license-dropdown:hover {
         border: 1px solid #36f;
-        border-radius: 10px;
     }
 
     #license-dropdown:focus {
         border: 1px solid #36f;
-        border-radius: 10px;
     }
 
     .form-select {
@@ -83,7 +81,7 @@ $session->header("Idea Submission");
         padding: 10px;
         margin: 10px;
         margin-right: 10px;
-        border-radius: 10px;
+        border-radius: 6px;
         border: 1px solid #000;
     }
 
@@ -106,7 +104,7 @@ $session->header("Idea Submission");
         text-align-last: center;
         line-height: 100%;
         border: 1px solid #000;
-        border-radius: 10px;
+        border-radius: 6px;
         margin: 10px;
         margin-right: 10px;
     }

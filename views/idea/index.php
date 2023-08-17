@@ -28,7 +28,7 @@ $session->header("Idea #$idea_id");
 
 </style>
 <div class="discroller">
-    <div style="margin: 5px; padding: 5px; border: 1px solid black; border-radius: 10px;">
+    <div style="margin: 5px; padding: 5px; border: 1px solid black; border-radius: 6px;">
         <div class="flex-container" style='justify-content: start; align-items: center;'>
             <h1>Idea #<?= $idea_id ?></h1>
             <p>by <a href="/user/<?= $discord_id ?>"><img src='https://cdn.discordapp.com/avatars/<?= $discord_id ?>/<?= $discord_avatar ?>.png' style='width: 32px; height: 32px; border-radius: 50%; vertical-align: middle; margin-right: 5px;'><?= $discord_global_name ?></a>

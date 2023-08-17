@@ -17,7 +17,7 @@
     overflow-x: hidden !important;
     overflow-y: scroll !important;
     display: none;
-    border-radius: 10px;
+    border-radius: 6px;
     padding: 0;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -50,7 +50,7 @@
     </ul>
     <ul class="navbar-nav navbar-nav-right">
       <li class="nav-item dropdown d-lg-block">
-        <a class="nav-link btn create-new-button" id="createbuttonDropdown" href="/new-idea">+ New Idea</a>
+        <a class="nav-link btn create-new-button" id="createbuttonDropdown" style="border: 1px solid #36f; border-radius: 6px;" href="/new-idea">+ New Idea</a>
       </li>
       <?php
       if (!$this->loggedin) {
@@ -330,5 +330,5 @@
   });
 </script>
 <div class="main-panel">
-  <div id="content-wrapper" class="content-wrapper" style='border-radius: 10px; display: flex; height: 100%;'>
+  <div id="content-wrapper" class="content-wrapper" style='border-radius: 6px; display: flex; height: 100%;'>
     <div id="results-container" class="results-container"></div>
