@@ -214,7 +214,7 @@
                         $attachment_id = $response.attachment_id;
                         $attachments.push($attachment_id);
                         $thumbnail_url = $response.thumbnail;
-                        if (t$humbnail_url) $thumbnail.src = $thumbnail_url;
+                        if ($thumbnail_url) $thumbnail.src = $thumbnail_url;
                     } else {
                         $errorMessage = $response.message;
                         $progressBar.classList.add("danger");
