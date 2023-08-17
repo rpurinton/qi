@@ -47,6 +47,11 @@ $session->header("Idea Submission");
         border-radius: 10px;
     }
 
+    #license-dropdown:focus {
+        border: 1px solid #36f;
+        border-radius: 10px;
+    }
+
     .form-select {
         position: relative;
         top: 0;
