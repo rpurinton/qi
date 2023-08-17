@@ -116,13 +116,6 @@
         .delete-button:active {
             background-color: #f00;
         }
-
-        .delete-button i {
-            font-size: 14px;
-            width: 16px;
-            height: 16px;
-            color: #fff;
-        }
     </style>
 
 </head>
@@ -150,7 +143,7 @@
             cardHeader.appendChild(thumbnail);
             // create a small delete button using mdi icon in the top right corner of header
             var deleteButton = document.createElement("button");
-            deleteButton.classList.add("btn", "btn-sm", "btn-outline-danger", "delete-button");
+            deleteButton.classList.add("btn", "btn-sm", "delete-button");
             deleteButton.innerHTML = '<i class="mdi mdi-close"></i>';
             deleteButton.addEventListener("click", function () {
                 // remove functions
