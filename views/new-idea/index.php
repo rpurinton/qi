@@ -72,6 +72,29 @@ $session->header("Idea Submission");
         border-radius: 10px;
         border: 1px solid #000;
     }
+
+    #voicetyping {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40px;
+        height: 40px;
+        background: transparent;
+        border: none;
+        outline: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        color: #f0f8ff;
+        font-size: 100%;
+        font-weight: bold;
+        text-align-last: center;
+        line-height: 100%;
+        border: 1px solid #000;
+        border-radius: 10px;
+        margin: 10px;
+        margin-right: 10px;
+    }
 </style>
 
 <div class="discroller">
@@ -101,7 +124,7 @@ $session->header("Idea Submission");
     </div>
     <!-- make description text area fill the remaining space, take focus by default, and support multiline text entry with word wrapping and scrolling.  it should never grow beyond it's original size. -->
     <textarea id="description" name="description" rows="20" style="resize: vertical;" class="form-control control-group description" autofocus placeholder="Enter your idea here... Markdown support enabled!" required inputmode="text" x-webkit-speech></textarea>
-    <button onclick="focusTextarea()"><i class="mdi mdi-microphone"></i></button>
+    <button id="voicetyping" onclick="focusTextarea()"><i class="mdi mdi-microphone"></i></button>
     <div id="attachments" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
         <!-- Thumbnails of attachments will be dynamically generated here -->
     </div>
