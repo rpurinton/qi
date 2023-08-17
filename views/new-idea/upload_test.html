@@ -18,15 +18,25 @@
             background-color: #e8f9ff;
         }
 
-        .success::-webkit-progress-value {
+        .success {
             background-color: green;
         }
     </style>
+
+</head>
+
+<body>
+    <h1>File Upload Test</h1>
+
+    <div id="dropbox">
+        <p>Drag and drop files here</p>
+    </div>
+
     <script>
         var dropbox;
 
         function handleFileUpload(file) {
-            // create an element in the dropbox for the file with a pie chart progress bar at 0% and a shortened file name below it put an id on the progress bar so we can update it later
+            // if filesize is more than 32MB (32 * 1024 * 1024), display an error message
             var progressBar = document.createElement("progress");
             progressBar.id = file.name + "-progress";
             progressBar.value = 0;
@@ -57,12 +67,13 @@
                     } else {
                         var errorMessage = response.message;
                         // Display the error message in the UI
+                        alert(errorMessage);
                     }
                 }
             };
 
             xhr.onerror = function () {
-                // Handle any errors that occur during the upload
+                alert("Error! Upload failed. Can not connect to server.");
             };
 
             xhr.send(file);
@@ -82,6 +93,20 @@
             event.preventDefault();
             event.stopPropagation();
             var files = event.dataTransfer.files;
+            // check that no file is more than 32MB if so return an error message
+            var oversied = false;
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                if (file.size > 32 * 1024 * 1024) {
+                    oversied = true;
+                    break;
+                }
+            }
+            if (oversied) {
+                alert("Please upload files that are less than 32MB.");
+                dropbox.classList.remove("highlight");
+                return;
+            }
             for (var i = 0; i < files.length; i++) {
                 var file = files[i];
                 handleFileUpload(file);
@@ -108,15 +133,6 @@
             dropbox.addEventListener("drop", handleDrop);
         });
     </script>
-</head>
-
-<body>
-    <h1>File Upload Test</h1>
-
-    <div id="dropbox">
-        <p>Drag and drop files here</p>
-    </div>
-
 </body>
 
 </html>
