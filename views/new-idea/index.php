@@ -151,9 +151,9 @@ $session->header("Idea Submission");
         <div class="form-check" style="width: 170px;">
             <!-- display checkbox required checked readonly -->
             <input class="form-check-input" type="checkbox" value="" id="agree-tos" name="agree-tos" required checked disabled>
-            <label class="form-check-label" for="agree-tos">I agree to the <a target="_blank" href='/tos'>Terms of Service<a></label>
+            <label class="form-check-label" for="agree-tos" style="color: white;">I agree to the <a target="_blank" href='/tos'>Terms of Service<a></label>
         </div>
-        <button type="submit" class="btn btn-primary">Submit The Idea</button>
+        <button type="submit" class="btn btn-primary">Submit Your Idea</button>
     </div>
 </div>
 
