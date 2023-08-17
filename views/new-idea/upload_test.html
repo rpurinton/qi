@@ -17,10 +17,6 @@
         #dropbox.highlight {
             background-color: #e8f9ff;
         }
-
-        .success {
-            background-color: green;
-        }
     </style>
 
 </head>
@@ -57,11 +53,10 @@
             xhr.onload = function () {
                 if (xhr.status === 200) {
                     var response = JSON.parse(xhr.responseText);
-                    if (response.message === "success") {
+                    if (response.message === "File uploaded successfully") {
                         progressBar.classList.add("success");
                         // update the progress bar to 100%
                         progressBar.value = 100;
-
                         var thumbnailURL = response.thumbnailURL;
                         // Display the thumbnailURL in the UI
                     } else {
