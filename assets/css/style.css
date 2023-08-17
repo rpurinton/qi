@@ -25240,7 +25240,7 @@ div.tagsinput span.tag a {
 }
 .navbar .navbar-menu-wrapper .search input {
   background: #191c24;
-  padding: 13px 10px 11px 10px;
+  padding: 13px 8px 11px 8px;
   border: 1px solid #2c2e33;
 }
 .navbar .navbar-menu-wrapper .search input::placeholder {
