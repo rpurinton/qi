@@ -134,8 +134,8 @@ $session->header("Idea Submission");
             ?>
         </select>
     </div>
+    <button id="voicetyping" onclick="focusTextarea()" style="margin: 0 !important; padding: 0 !important;"><i class="mdi mdi-microphone"></i></button>
     <textarea id="description" name="description" rows="20" style="resize: none;" class="form-control control-group description" autofocus placeholder="Enter your idea here... Markdown support enabled!" required inputmode="text" x-webkit-speech></textarea>
-    <button id="voicetyping" onclick="focusTextarea()" style="margin: 0 !important; padding: 0 !important;"><i class="mdi mdi-microphone" style="vertical-align: middle; margin: 0 !important; padding: 0 !important;"></i></button>
     <div id="attachments" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
     </div>
     <input type="file" id="fileInput" multiple style="display: none">
