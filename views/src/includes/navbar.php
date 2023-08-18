@@ -31,7 +31,7 @@
 <nav class="navbar p-0 fixed-top d-flex flex-row flex-nowrap" style="vertical-align: middle;">
   <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
     <a class="navbar-brand brand-logo" style="padding: 0;" href="/"><i class="mdi mdi-home"></i></a>
-    <a class="navbar-brand brand-logo-mini" style="padding: 0;" href="/"><img style='margin-left: 15px; margin-right:20px; width: 25px; height: 25px;  vertical-align: text-top;' src='/assets/images/icon/qi_icon.png'></a>
+    <a class="navbar-brand brand-logo-mini" style="padding: 0; width: 55px;" href="/"><img style='margin-left: 15px; margin-right:15px; width: 25px; height: 25px;' src='/assets/images/icon/qi_icon.png'></a>
   </div>
   <div style="padding-left: 0px;" class=" navbar-menu-wrapper flex-grow d-flex align-items-stretch">
     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
