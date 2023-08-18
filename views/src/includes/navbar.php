@@ -50,7 +50,7 @@
     </ul>
     <ul class="navbar-nav navbar-nav-right">
       <li class="nav-item dropdown d-lg-block">
-        <a class="nav-link btn create-new-button" id="new-idea-button" style="width: calc(100% - 16px); height: 38px; background: #191c24; max-width: 310px; padding: 9px 8px 11px 8px; border: 1px solid #2c2e33;border-radius: 6px;" href="/new-idea"><i class="mdi mdi-lightbulb" style='vertical-align: middle;'></i> New Idea</a>
+        <a class="nav-link btn create-new-button" id="new-idea-button" style="width: calc(100% - 16px); height: 38px; background: #191c24; max-width: 310px; padding: 9px 8px 11px 8px; border: 1px solid #2c2e33;border-radius: 6px;" href="/new-idea"><i class="mdi mdi-lightbulb" style='vertical-align: middle;'></i> Create Idea</a>
       </li>
       <?php
       if (!$this->loggedin) {
