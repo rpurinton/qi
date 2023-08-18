@@ -176,6 +176,7 @@ $session->header("Idea Submission");
 
     function focusTextarea() {
         document.getElementById("description").focus();
+        document.getElementById("description").scrollIntoView();
     }
     const privacyToggle = document.getElementById("privacy-toggle");
     const publicLabel = document.getElementById("public-label");
