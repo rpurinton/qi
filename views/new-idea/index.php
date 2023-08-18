@@ -168,7 +168,7 @@ $session->header("Idea Submission");
 
     We're passionate about hearing your ideas, so please use clear and concise language to convey your idea's purpose, potential, and uniqueness. Feel free to add URLs or file attachments to support your vision. And don't forget to make it visually appealing with Markdown formatting and Emojis! 😊💪
 
-    Join our community in shaping the future! Share your ideas today and let's create something extraordinary together. 💫💡✨" required inputmode="text" x-webkit-speech></textarea>
+    Join our community in shaping the future! Share your ideas today and let's create something extraordinary together. 💫💡✨" autofocus required inputmode="text" x-webkit-speech></textarea>
     <div id="attachments" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
     </div>
     <input type="file" id="fileInput" multiple style="display: none">
@@ -385,16 +385,18 @@ $session->header("Idea Submission");
     // when focused on the text area make CTRL SHIFT S submit the form or CTRL S
     document.getElementById("description").addEventListener("keydown", function(e) {
         if (e.ctrlKey && e.shiftKey && e.key == "S") {
-            // ask if they want to submit the form yes or cancel
             if (confirm("Are you sure you want to submit your idea?")) {
-                // submit the form
                 final_submit();
             }
         }
     });
 
     document.addEventListener("DOMContentLoaded", function() {
-        description.focus();
+        setTimeout(function() {
+            description.focus();
+            description.click();
+            description.scrollIntoView();
+        }, 100);
     });
 </script>
 <?php
