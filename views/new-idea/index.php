@@ -180,15 +180,24 @@ $session->header("Idea Submission");
     // we dont need the new idea button on the new idea page
     document.getElementById("new-idea-button").style.display = "none";
 
+    <?php
+    echo ("const loggedin = '" . ($session->loggedin ? "true" : "false") . "';");
+    ?>
+
     const label = document.getElementById("attachments-label");
     const fileInput = document.getElementById("fileInput");
     const description = document.getElementById("description");
+    const privacyToggle = document.getElementById("privacy-toggle");
+    const publicLabel = document.getElementById("public-label");
+    const licenseDropdown = document.getElementById("license-dropdown");
+
     // description focus
     description.addEventListener("focus", () => {
         setTimeout(function() {
             description.scrollIntoView();
         }, 100);
     });
+
     label.addEventListener("click", () => {
         fileInput.click();
     });
@@ -210,9 +219,6 @@ $session->header("Idea Submission");
     function focusTextarea() {
         description.focus();
     }
-    const privacyToggle = document.getElementById("privacy-toggle");
-    const publicLabel = document.getElementById("public-label");
-    const licenseDropdown = document.getElementById("license-dropdown");
 
     privacyToggle.addEventListener("change", function() {
         if (this.checked) {
@@ -229,10 +235,7 @@ $session->header("Idea Submission");
             licenseDropdown.style.visibility = "hidden";
         }
     });
-    <?php
-    // force true false text
-    echo ("const loggedin = '" . ($session->loggedin ? "true" : "false") . "';");
-    ?>
+
     if (loggedin == 'false') {
         // disable the submit button
         document.querySelector("button[type='submit']").disabled = true;
@@ -248,6 +251,10 @@ $session->header("Idea Submission");
         document.getElementById("attachments").style.display = "none";
         // display a message to login
         document.getElementById("description").placeholder = "You must be logged in to submit an idea.";
+        // disable the voice typing button
+        document.getElementById("voicetyping").disabled = true;
+        // disable the fileinput
+        document.getElementById("fileInput").disabled = true;
     }
 
     // display a warning if there is unsaved text in the textbox if they attempt to navigate away from the page
