@@ -133,8 +133,14 @@
     <script>
         var $dropbox = null;
         var $attachments = [];
+        var $already_attached = [];
 
         function handleFileUpload($file) {
+            if ($already_attached.indexOf($file.name) > -1) {
+                alert("File already attached.");
+                return;
+            }
+            $already_attached.push($file.name);
             // create a new div element
             var $attachment_id = 0;
             $dropbox = document.getElementById("dropbox");
