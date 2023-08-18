@@ -125,7 +125,6 @@ $session->header("Idea Submission");
         </div>
     </div>
     <div class="col-auto" style='display: flex; visibility: hidden; align-items: center; justify-content: center;'>
-        <!-- dropdown box listing top 10 common public licenses -->
         <select id="license-dropdown" class="form-select form-control" aria-label="License" style='color:#f0f8ff; text-align: center;'>
             <?php
             $result = $session->sql->query("SELECT * FROM `license_types`;");
@@ -135,21 +134,16 @@ $session->header("Idea Submission");
             ?>
         </select>
     </div>
-    <!-- make description text area fill the remaining space, take focus by default, and support multiline text entry with word wrapping and scrolling.  it should never grow beyond it's original size. -->
     <textarea id="description" name="description" rows="20" style="resize: none;" class="form-control control-group description" autofocus placeholder="Enter your idea here... Markdown support enabled!" required inputmode="text" x-webkit-speech></textarea>
-    <button id="voicetyping" onclick="focusTextarea()"><i class="mdi mdi-microphone"></i></button>
+    <button id="voicetyping" onclick="focusTextarea()" style="margin: 0 !important; padding: 0 !important;"><i class="mdi mdi-microphone" style="vertical-align: middle; margin: 0 !important; padding: 0 !important;"></i></button>
     <div id="attachments" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-        <!-- Thumbnails of attachments will be dynamically generated here -->
     </div>
     <input type="file" id="fileInput" multiple style="display: none">
-    <!-- Give hint to drag files to the text area to upload new attachments -->
     <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
         <label id="attachments-label" for="attachments"><i class="mdi mdi-arrow-up-bold-circle-outline" style='vertical-align:middle;'></i> Upload <i class='mdi mdi-arrow-up-bold-circle-outline' style='vertical-align: middle;'></i></label>
     </div>
-    <!-- Button to submit the form with the I agree to TOS above the button -->
     <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
         <div class="form-check" style="width: 170px;">
-            <!-- display checkbox required checked readonly -->
             <input class="form-check-input" type="checkbox" value="" id="agree-tos" name="agree-tos" required checked disabled>
             <label class="form-check-label" for="agree-tos" style="color: white;">I agree to the <a target="_blank" href='/tos'>Terms of Service<a></label>
         </div>
