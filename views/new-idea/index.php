@@ -108,6 +108,31 @@ $session->header("Idea Submission");
         margin: 10px;
         margin-right: 10px;
     }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .spinner {
+        height: 3rem;
+        color: #f0f8ff;
+        border-top-color: #f0f8ff;
+        border-right-color: #f0f8ff;
+        border-bottom-color: #f0f8ff;
+        border-left-color: #000;
+        border-radius: 50%;
+        animation: spinner-border 0.75s linear infinite;
+    }
 </style>
 
 <div class="discroller">
@@ -154,7 +179,14 @@ $session->header("Idea Submission");
 <script>
     const label = document.getElementById("attachments-label");
     const fileInput = document.getElementById("fileInput");
+    const description = document.getElementById("description");
 
+    // description focus
+    description.addEventListener("focus", () => {
+        setTimeout(function() {
+            description.scrollIntoView();
+        }, 100);
+    });
     label.addEventListener("click", () => {
         fileInput.click();
     });
@@ -173,12 +205,8 @@ $session->header("Idea Submission");
         fileInput.value = "";
     });
 
-
     function focusTextarea() {
-        document.getElementById("description").focus();
-        setTimeout(function() {
-            document.getElementById("description").scrollIntoView();
-        }, 100);
+        description.focus();
     }
     const privacyToggle = document.getElementById("privacy-toggle");
     const publicLabel = document.getElementById("public-label");
@@ -238,29 +266,12 @@ $session->header("Idea Submission");
 
         // create the overlay
         const overlay = document.createElement("div");
-        overlay.style.position = "fixed";
-        overlay.style.top = "0";
-        overlay.style.left = "0";
-        overlay.style.width = "100%";
-        overlay.style.height = "100%";
-        overlay.style.backgroundColor = "rgba(0,0,0,0.5)";
-        overlay.style.zIndex = "1000";
-        overlay.style.display = "flex";
-        overlay.style.justifyContent = "center";
-        overlay.style.alignItems = "center";
-        overlay.style.flexDirection = "column";
+        overlay.classList.add("overlay");
         // create the spinner
         const spinner = document.createElement("div");
+        spinner.classList.add("spinner");
         spinner.classList.add("spinner-border");
-        spinner.style.width = "3rem";
-        spinner.style.height = "3rem";
-        spinner.style.color = "#f0f8ff";
-        spinner.style.borderTopColor = "#f0f8ff";
-        spinner.style.borderRightColor = "#f0f8ff";
-        spinner.style.borderBottomColor = "#f0f8ff";
-        spinner.style.borderLeftColor = "#000";
-        spinner.style.borderRadius = "50%";
-        spinner.style.animation = "spinner-border 0.75s linear infinite";
+
         // add the spinner to the overlay
         overlay.appendChild(spinner);
         // add the overlay to the page
