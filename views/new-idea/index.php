@@ -160,7 +160,7 @@ $session->header("Idea Submission");
         </select>
     </div>
     <button id="voicetyping" onclick="focusTextarea()" style="margin: 0 !important; padding: 0 !important; padding-top: 4px !important;"><i class="mdi mdi-microphone"></i></button>
-    <textarea id="description" name="description" rows="20" style="resize: none;" class="form-control control-group description" autofocus placeholder="# Welcome<?= $session->user["discord_global_name"] ? " " . $session->user["discord_global_name"] : "" ?>!
+    <textarea id="description" name="description" rows="20" style="resize: none;" class="form-control control-group description" placeholder="# Welcome<?= $session->user["discord_global_name"] ? " " . $session->user["discord_global_name"] : "" ?>!
     
     Welcome to Quantum Innovations (QI), where your ideas come to life! Get ready to make an impact by sharing your innovative thinking. 🌟💡
 
@@ -205,6 +205,8 @@ $session->header("Idea Submission");
             description.scrollIntoView();
         }, 100);
     });
+
+    description.focus();
 
     label.addEventListener("click", () => {
         fileInput.click();
