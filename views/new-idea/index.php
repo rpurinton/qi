@@ -177,10 +177,12 @@ $session->header("Idea Submission");
 </div>
 
 <script>
+    // we dont need the new idea button on the new idea page
+    document.getElementById("new-idea-button").style.display = "none";
+
     const label = document.getElementById("attachments-label");
     const fileInput = document.getElementById("fileInput");
     const description = document.getElementById("description");
-
     // description focus
     description.addEventListener("focus", () => {
         setTimeout(function() {
