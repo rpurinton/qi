@@ -164,11 +164,11 @@ $session->header("Idea Submission");
     
     Welcome to Quantum Innovations (QI), where your ideas come to life! Get ready to make an impact by sharing your innovative thinking. 🌟💡
 
-Start by selecting either private or public and choose an appropriate public license. This helps us ensure that your ideas are shared in the right way. Once you've done that, let your creativity soar as you write your idea here. 🚀
+    Start by selecting either private or public and choose an appropriate public license. This helps us ensure that your ideas are shared in the right way. Once you've done that, let your creativity soar as you write your idea here. 🚀
 
-We're passionate about hearing your ideas, so please use clear and concise language to convey your idea's purpose, potential, and uniqueness. Feel free to add URLs or file attachments to support your vision. And don't forget to make it visually appealing with Markdown formatting and Emojis! 😊💪
+    We're passionate about hearing your ideas, so please use clear and concise language to convey your idea's purpose, potential, and uniqueness. Feel free to add URLs or file attachments to support your vision. And don't forget to make it visually appealing with Markdown formatting and Emojis! 😊💪
 
-Join our community in shaping the future! Share your ideas today and let's create something extraordinary together. 💫💡✨" required inputmode="text" x-webkit-speech></textarea>
+    Join our community in shaping the future! Share your ideas today and let's create something extraordinary together. 💫💡✨" required inputmode="text" x-webkit-speech></textarea>
     <div id="attachments" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
     </div>
     <input type="file" id="fileInput" multiple style="display: none">
