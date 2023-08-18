@@ -31,7 +31,7 @@
 <nav class="navbar p-0 fixed-top d-flex flex-row flex-nowrap" style="vertical-align: middle;">
   <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
     <a class="navbar-brand brand-logo" style="padding: 0;" href="/"><i class="mdi mdi-home"></i></a>
-    <a class="navbar-brand brand-logo-mini" style="padding: 0;" href="/"><img style='margin-left: 15px; margin-right:10px; width: 25px; height: 25px;  vertical-align: text-top;' src='/assets/images/icon/qi_icon.png'></a>
+    <a class="navbar-brand brand-logo-mini" style="padding: 0;" href="/"><img style='margin-left: 15px; margin-right:20px; width: 25px; height: 25px;  vertical-align: text-top;' src='/assets/images/icon/qi_icon.png'></a>
   </div>
   <div style="padding-left: 0px;" class=" navbar-menu-wrapper flex-grow d-flex align-items-stretch">
     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -50,7 +50,7 @@
     </ul>
     <ul class="navbar-nav navbar-nav-right">
       <li class="nav-item dropdown d-lg-block">
-        <a class="nav-link btn create-new-button" id="createbuttonDropdown" style="width: calc(100% - 16px); height: 38px; background: #191c24; max-width: 310px; padding: 13px 8px 11px 8px; border: 1px solid #2c2e33;border-radius: 6px;" href="/new-idea"><i class="mdi mdi-lightbulb" style='vertical-align: middle;'></i> New Idea</a>
+        <a class="nav-link btn create-new-button" id="createbuttonDropdown" style="width: calc(100% - 16px); height: 38px; background: #191c24; max-width: 310px; padding: 9px 8px 11px 8px; border: 1px solid #2c2e33;border-radius: 6px;" href="/new-idea"><i class="mdi mdi-lightbulb" style='vertical-align: middle;'></i> New Idea</a>
       </li>
       <?php
       if (!$this->loggedin) {
