@@ -87,8 +87,8 @@ $session->header("Idea Submission");
 
     #voicetyping {
         position: absolute;
-        top: 0;
-        right: 7px;
+        top: 12px;
+        right: 18px;
         width: 40px;
         height: 40px;
         background: transparent;
