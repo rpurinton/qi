@@ -227,7 +227,7 @@ $session->header("𝗤𝘂𝗮𝗻𝘁𝘂𝗺 𝗜𝗻𝗻𝗼𝘃𝗮𝘁𝗶�
             <a href="https://discord.gg/F685FVEXmU" target="_blank">Support</a>
         </div>
         <div class="copyrightfooter">
-            Quantum Innovations &copy;2023 Laozi 老子
+            QI &copy; 2023 Laozi 老子
         </div>
         <div class="linksright">
             <a href="/privacy" target="_blank">Privacy</a>
