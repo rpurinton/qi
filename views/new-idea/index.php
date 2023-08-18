@@ -206,8 +206,6 @@ $session->header("Idea Submission");
         }, 100);
     });
 
-    description.focus();
-
     label.addEventListener("click", () => {
         fileInput.click();
     });
@@ -382,6 +380,21 @@ $session->header("Idea Submission");
             // prevent the form from submitting
             e.preventDefault();
         }
+    });
+
+    // when focused on the text area make CTRL SHIFT S submit the form or CTRL S
+    document.getElementById("description").addEventListener("keydown", function(e) {
+        if (e.ctrlKey && e.shiftKey && e.key == "S") {
+            // ask if they want to submit the form yes or cancel
+            if (confirm("Are you sure you want to submit your idea?")) {
+                // submit the form
+                final_submit();
+            }
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        description.focus();
     });
 </script>
 <?php
