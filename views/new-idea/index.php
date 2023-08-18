@@ -160,14 +160,13 @@ $session->header("Idea Submission");
         </select>
     </div>
     <button id="voicetyping" onclick="focusTextarea()" style="margin: 0 !important; padding: 0 !important; padding-top: 4px !important;"><i class="mdi mdi-microphone"></i></button>
-    <textarea id="description" name="description" rows="20" style="resize: none;" class="form-control control-group description" autofocus placeholder="✨ Unleash your creativity! Let your ideas flow freely and provide in-depth insights into your vision.
-💡 Use clear and concise language to convey the purpose, potential, and uniqueness of your idea.
-🌟 Share real-world examples, use cases, or success stories to demonstrate the impact of your idea.
-📈 Illuminate how your idea can bring positive change and drive significant results.
-🚀 Dream big and let your imagination soar as you explore innovative possibilities.
-🌐 Embrace creativity and think outside the box to come up with groundbreaking solutions.
-🎯 Define clear goals and objectives for your idea to focus your vision and execution.
-✍️ Contribute your valuable ideas and be an integral part of our transformative journey." required inputmode="text" x-webkit-speech></textarea>
+    <textarea id="description" name="description" rows="20" style="resize: none;" class="form-control control-group description" autofocus placeholder="Welcome to Quantum Innovations (QI), where your ideas come to life! Get ready to make an impact by sharing your innovative thinking. 🌟💡
+
+Start by selecting either private or public and choose an appropriate public license. This helps us ensure that your ideas are shared in the right way. Once you've done that, let your creativity soar as you write your idea here. 🚀
+
+We're passionate about hearing your ideas, so please use clear and concise language to convey your idea's purpose, potential, and uniqueness. Feel free to add URLs or file attachments to support your vision. And don't forget to make it visually appealing with Markdown formatting and Emojis! 😊💪
+
+Join our community in shaping the future! Share your ideas today and let's create something extraordinary together. 💫💡✨" required inputmode="text" x-webkit-speech></textarea>
     <div id="attachments" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
     </div>
     <input type="file" id="fileInput" multiple style="display: none">
