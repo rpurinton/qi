@@ -160,7 +160,14 @@ $session->header("Idea Submission");
         </select>
     </div>
     <button id="voicetyping" onclick="focusTextarea()" style="margin: 0 !important; padding: 0 !important; padding-top: 4px !important;"><i class="mdi mdi-microphone"></i></button>
-    <textarea id="description" name="description" rows="20" style="resize: none;" class="form-control control-group description" autofocus placeholder="Enter your idea here... Markdown support enabled!" required inputmode="text" x-webkit-speech></textarea>
+    <textarea id="description" name="description" rows="20" style="resize: none;" class="form-control control-group description" autofocus placeholder="✨ Unleash your creativity! Let your ideas flow freely and provide in-depth insights into your vision.
+💡 Use clear and concise language to convey the purpose, potential, and uniqueness of your idea.
+🌟 Share real-world examples, use cases, or success stories to demonstrate the impact of your idea.
+📈 Illuminate how your idea can bring positive change and drive significant results.
+🚀 Dream big and let your imagination soar as you explore innovative possibilities.
+🌐 Embrace creativity and think outside the box to come up with groundbreaking solutions.
+🎯 Define clear goals and objectives for your idea to focus your vision and execution.
+✍️ Contribute your valuable ideas and be an integral part of our transformative journey." required inputmode="text" x-webkit-speech></textarea>
     <div id="attachments" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
     </div>
     <input type="file" id="fileInput" multiple style="display: none">
