@@ -160,7 +160,9 @@ $session->header("Idea Submission");
         </select>
     </div>
     <button id="voicetyping" onclick="focusTextarea()" style="margin: 0 !important; padding: 0 !important; padding-top: 4px !important;"><i class="mdi mdi-microphone"></i></button>
-    <textarea id="description" name="description" rows="20" style="resize: none;" class="form-control control-group description" autofocus placeholder="Welcome to Quantum Innovations (QI), where your ideas come to life! Get ready to make an impact by sharing your innovative thinking. 🌟💡
+    <textarea id="description" name="description" rows="20" style="resize: none;" class="form-control control-group description" autofocus placeholder="# Welcome
+    
+    Welcome to Quantum Innovations (QI), where your ideas come to life! Get ready to make an impact by sharing your innovative thinking. 🌟💡
 
 Start by selecting either private or public and choose an appropriate public license. This helps us ensure that your ideas are shared in the right way. Once you've done that, let your creativity soar as you write your idea here. 🚀
 
